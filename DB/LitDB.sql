@@ -1,4 +1,3 @@
-
 CREATE DATABASE IF NOT EXISTS LIT;
 USE LIT;
 
@@ -8,7 +7,7 @@ Nombre varchar(70) NOT NULL,
 ApellidoPaterno varchar(70) NOT NULL,
 ApellidoMaterno varchar(70) NOT NULL,
 Correo_e varchar(70) NOT NULL,
-Telefono int NOT NULL,
+Telefono varchar(70) NOT NULL,
 Genero varchar(40) NOT NULL,
 
 PRIMARY KEY (UsuarioID)

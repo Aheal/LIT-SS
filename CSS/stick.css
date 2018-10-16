@@ -1,0 +1,28 @@
+/*Estilo por: Aheal*/ 
+
+/*HOME*/
+.home-container{ 
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../IMG/celebration-crowd-daylight-1157557.jpg);
+    background-size: cover;
+}
+.home-row{ height: 100vh; text-align: center;} 
+.home-row h3 {color:white; margin-left: 15px;} 
+.angle-container{position: absolute !important; bottom: 25px; color:white; font-size: 3em;}
+
+/*INFO*/
+.info-container{
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+.info-card{
+    height: 450px; 
+    background: maroon; 
+    margin-left: 25px;
+    margin-right: 25px; 
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.5);    
+}
+.info-container h2{
+    margin-bottom: 25px;
+}

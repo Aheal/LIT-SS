@@ -1,6 +1,8 @@
 /*Estilo por: Aheal*/ 
 
-/*HOME*/
+/*
+    HOME
+*/
 .home-container{ 
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../IMG/celebration-crowd-daylight-1157557.jpg);
     background-size: cover;
@@ -9,7 +11,7 @@
 .home-row h3 {color:white; margin-left: 15px;} 
 .angle-container{position: absolute !important; bottom: 25px; color:white; font-size: 3em;}
 
-/*INFO*/
+/*info*/
 .info-container{
     margin-top: 35px;
     margin-bottom: 25px;
@@ -25,4 +27,82 @@
 }
 .info-container h2{
     margin-bottom: 25px;
+}
+
+/*
+    PERFIL
+*/ 
+.perfil-container{
+    padding: 8% 5% 8% 5%; 
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../IMG/3.jpg);
+    background-size: cover;
+} 
+.cardto{
+   height: 500px;
+   margin-bottom: 5%; 
+   padding-left: 2%;
+   padding-right: 2%; 
+} 
+.cardto-2{
+    height: 100px;
+    padding-left: 2%;
+    padding-right: 2%;
+ } 
+.cont{
+    height: auto !important;
+}
+.a{
+    height: 500px;
+    text-align: center;
+}
+.b{
+    height: 500px;
+}
+.c{ 
+    height: 30%;
+    margin-bottom: 5%
+}
+.d{ 
+    height: 65%;
+}
+.e{
+    
+}
+
+.team-wrap{
+    border-radius: 100%;
+    background: rgba(0,0,0,0.5);
+    width: 100px;
+    position: absolute;
+    left: 320px;
+    top: 12px;
+}
+
+.team-img{
+    height: 100px;
+    width: 100px;
+}
+.img-aux{
+    margin: 10%; 
+}
+
+.perfil-img {
+    height: 350px;
+    width: 350px;
+    -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+} 
+.info-card-aux{
+    background: rgba(0, 0, 0, 0.5); 
+    height: 100%;
+}
+.info-card-container{
+    padding: 5%; 
+    color: white;
+} 
+
+.usr{
+    width: 210px;
+    display: inline-block;
+    background:rgba(255, 80, 0 ,0.3);
 }

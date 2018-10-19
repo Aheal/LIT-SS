@@ -1,5 +1,5 @@
 /*Estilo por: Aheal*/ 
-
+html, body {height: 100%; }
 /*
     HOME
 */
@@ -33,7 +33,7 @@
     PERFIL
 */ 
 .perfil-container{
-    padding: 8% 5% 8% 5%; 
+    padding: 8% 5% 9% 5%; 
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../IMG/3.jpg);
     background-size: cover;
 } 

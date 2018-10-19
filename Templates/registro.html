@@ -7,11 +7,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   </head>
   <body>
-    <div class="parent">
+
+      <div class="parent">
         <img src="logo.png" alt="Logo del Concurso">
-      <h2>Registro<small>Por favor siga los pasos</small></h2>
-      <div class="container">
-        <form>
+        <h2>Registro<small>Por favor siga los pasos</small></h2>
+        <div class="container">
+          <form>
             <div class="sides">
               <div class="group1" class="left">
                 <input type="text" required>
@@ -26,51 +27,53 @@
                 <label>Apellidos</label>
               </div>
             </div>
-            <div class="group1" >
-              <input type="email" required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>Email</label>
-            </div>
-            <div class="group1">
-              <input type="text" required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>Tel&eacutefono</label>
-            </div>
-            <div class="group1">
-              <input type="text" required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>G&eacutenero</label>
-            </div>
+              <div class="group1" >
+                <input type="email" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Email</label>
+              </div>
+              <div class="group1">
+                <input type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Tel&eacutefono</label>
+              </div>
+              <div class="group1">
+                <input type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>G&eacutenero</label>
+              </div>
 
-            <div class="group2" style="display: none">
-              <input type="text" required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>Usuario</label>
-            </div>
-            <div class="sides">
-              <div class="group2" class="left" style="display: none">
-                <input type="password" required>
+              <div class="group2" style="display: none">
+                <input type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <label>Contrase&ntildea</label>
+                <label>Usuario</label>
               </div>
-              <div class="group2" class="right" style="display: none">
-                <input type="password" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label>Verificar Contrase&ntildea</label>
+              <div class="sides">
+                <div class="group2" class="left" style="display: none">
+                  <input type="password" required>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Contrase&ntildea</label>
+                </div>
+                <div class="group2" class="right" style="display: none">
+                  <input type="password" required>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Verificar Contrase&ntildea</label>
+                </div>
               </div>
-            </div>
-        </form>
-        <button class="button b1" type="button" onclick="Next()">Siguiente</button>
+          </form>
+          <button class="button b1" type="button" onclick="Next()">Siguiente</button>
+        </div>
+          <p class="footer">Para terminar, haga click en el bot&oacuten finalizar</p>
+          <button class="button b2" type="button">Finalizar</button>
       </div>
-        <p class="footer">Al finalizar el proceso, haga click en el bot&oacuten finalizar</p>
-        <button class="button b2" type="button">Finalizar</button>
-    </div>
+
+
     <script type="text/javascript">
     function Next() {
       var x = document.querySelectorAll('.group1, .group2');

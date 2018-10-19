@@ -1,13 +1,16 @@
 * { box-sizing:border-box; }
 
 /* basic stylings ------------------------------------------ */
-body { background:url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-694514.png); }
-
 .container, .parent{
   font-family:'Roboto';
 
   display:block;
+    z-index: -1;
 
+}
+
+body{
+  background-image: url(https://images.pexels.com/photos/1298533/pexels-photo-1298533.jpeg?cs=srgb&amp;dl=adventure-alps-cold-1298533.jpg);
 }
 
 .button {
@@ -35,7 +38,7 @@ body { background:url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-
   width:620px;
   height: 400px;
   padding:36px 50px 50px;
-  background:#B3B3B3;
+  background:#ffffff;
   margin:35px auto 0;
 }
 
@@ -69,11 +72,15 @@ h2 small {
   display:block;
 }
 .footer 	{
+  font-size:18px;
   padding-top: 25px;
-  text-align:center;
+  padding-left: 30px;
+  text-align:left;
   font-weight:normal;
+  color:#FBFBFB;
+  display:block;
 }
-.footer a  { color:#53B2C8; }
+
 
 .sides {
   display: flex;
@@ -92,8 +99,8 @@ h2 small {
 /* form starting stylings ------------------------------- */
 .group1, .group2 			  {
   position:relative;
-  margin-left: 70px;
   margin-bottom:45px;
+  padding-right: 60px;
 }
 
 .group2{

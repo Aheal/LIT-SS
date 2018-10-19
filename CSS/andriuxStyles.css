@@ -13,6 +13,7 @@ html, body {height: 100%;}
 
 body{
   background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(https://images.pexels.com/photos/1298533/pexels-photo-1298533.jpeg?cs=srgb&amp;dl=adventure-alps-cold-1298533.jpg);
+  padding-top: 20vh;
 }
 
 .button {
@@ -38,7 +39,7 @@ body{
 
 .container{
   width:620px;
-  height: 400px;
+  height:400px;
   padding:36px 50px 50px;
   background:#ffffff;
   margin:35px auto 0;
@@ -49,9 +50,9 @@ body{
   position: relative;
   width:600px;
   height: 620px;
-  padding:5px 50px 50px;
+  padding:5px 50px;
   background:#D59E30;
-  margin:200px auto 0;
+  margin:0 auto;
 }
 
 img {

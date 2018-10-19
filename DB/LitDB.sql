@@ -9,8 +9,11 @@ ApellidoMaterno varchar(70) NOT NULL,
 Correo_e varchar(70) NOT NULL,
 Telefono varchar(70) NOT NULL,
 Genero varchar(40) NOT NULL,
+Alias varchar(80) NOT NULL,
 
-PRIMARY KEY (UsuarioID)
+
+
+PRIMARY KEY (UsuarioID,Alias)
 )ENGINE = INNODB, CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS Participantes
@@ -22,6 +25,7 @@ EscuelaID int NOT NULL,
 Grado int NOT NULL,
 Categoria varchar(15) NOT NULL,
 ConcursoID varchar(15) NOT NULL,
+
 
 INDEX (UsuarioID),
 FOREIGN KEY (UsuarioID)

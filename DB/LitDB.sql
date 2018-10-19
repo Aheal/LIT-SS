@@ -13,7 +13,7 @@ Alias varchar(80) NOT NULL,
 
 
 
-PRIMARY KEY (UsuarioID,Alias)
+CONSTRAINT PK_User PRIMARY KEY (UsuarioID,Alias)
 )ENGINE = INNODB, CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS Participantes

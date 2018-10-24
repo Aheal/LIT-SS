@@ -4,8 +4,7 @@ USE LIT;
 CREATE TABLE IF NOT EXISTS Usuarios
 (UsuarioID int NOT NULL AUTO_INCREMENT,
 Nombre varchar(70) NOT NULL,
-ApellidoPaterno varchar(70) NOT NULL,
-ApellidoMaterno varchar(70) NOT NULL,
+Apellidos varchar(255) NOT NULL,
 Correo_e varchar(70) NOT NULL,
 Telefono varchar(70) NOT NULL,
 Genero varchar(40) NOT NULL,

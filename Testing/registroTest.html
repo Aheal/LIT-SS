@@ -19,16 +19,20 @@
         <input type="text" id="apellidoM" name="apellidoM">
         <br>
         <label for="correoE">Correo Electronico:</label>
-        <input type="text" id="correoE" name="correoE">
+        <input type="text" id="correoE" name="correoE" onfocusout="checkEmail()">
         <br>
         <label for="telefono">Telefono:</label>
         <input type="text" id="telefono" name="telefono">
         <br>  
         <label for="genero">Genero:</label>
         <input type="text" id="genero" name="genero"> 
+        <br> 
+        <label for="alias">Alias:</label>
+        <input type="text" id="alias" name="alias" onfocusout="checkUser()"> 
         <br>
-        <input type="submit" Value="Enviar"> 
+        <button class="" type="button" onclick="registrar()">Registrar</button>
     </form>  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    <script src="../JS/formController.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
+    <script src="../JS/formController.js"></script>
 </body>
 </html>

@@ -4,19 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../JS/scripts.js"></script>
     <title>Prueba para Registro</title>
 </head>
 <body> 
     <h1>Formulario de Registro (Prueba)</h1>
-    <form > 
+    <form name=data> 
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
+        <input type="text" id="nombre"  onkeyup="AllowAlphabet(document.getElementById('nombre'))" name="nombre">
         <br>
-        <label for="apellidoP">Apellido Paterno:</label>
-        <input type="text" id="apellidoP" name="apellidoP"> 
-        <br>
-        <label for="apellidoM">Apellido Materno:</label>
-        <input type="text" id="apellidoM" name="apellidoM">
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos"> 
         <br>
         <label for="correoE">Correo Electronico:</label>
         <input type="text" id="correoE" name="correoE" onfocusout="checkEmail()">

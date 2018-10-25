@@ -4,7 +4,8 @@
     <link rel="stylesheet" type="text/css" href="../CSS/andriuxStyles.css"><link>
     <link href="//cdn.muicss.com/mui-0.9.41/css/mui.min.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-">
+    <script type="text/javascript" src="../JS/scripts.js"></script>
   </head>
   <body>
 
@@ -12,57 +13,58 @@
         <img src="logo.png" alt="Logo del Concurso">
         <h2>Registro<small>Por favor siga los pasos</small></h2>
         <div class="container">
-          <form>
+          <form name="data">
             <div class="sides">
               <div class="group1" class="left">
-                <input type="text" required>
+                <input name="nombre" id="nombre" onkeyup="AllowAlphabet(document.getElementById('nombre'))" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Nombre</label>
               </div>
               <div class="group1" class="right">
-                <input type="text" required>
+                <input name="apellidos" id="apellidos" onkeyup="AllowAlphabet(document.getElementById('apellidos'))" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Apellidos</label>
               </div>
             </div>
-              <div class="group1" >
-                <input type="email" required>
+              <div class="group1">
+                <input name="correoE" id="correoE" onchange="AllowEmail(document.getElementById('correoE'))"  type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Email</label>
               </div>
               <div class="group1">
-                <input type="text" required>
+                <input name="telefono"  id="telefono" onkeyup="AllowNumbers(document.getElementById('telefono'))"  type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Tel&eacutefono</label>
               </div>
               <div class="group1">
-                <input type="text" required>
+                <input name="genero" id="genero" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>G&eacutenero</label>
               </div>
 
               <div class="group2" style="display: none">
-                <input type="text" required>
+                <input name="alias" id="alias" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Usuario</label>
               </div>
               <div class="sides">
                 <div class="group2" class="left" style="display: none">
-                  <input type="password" required>
+                  <input name="random1" type="password" id="pass1"required>
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Contrase&ntildea</label>
                 </div>
                 <div class="group2" class="right" style="display: none">
-                  <input type="password" required>
+                  <input name="random2"  type="password" id="pass2" onkeyup="checkPass(); return false;" required>
                   <span class="highlight"></span>
                   <span class="bar"></span>
+                  <span id="confirmMessage" class="confirmMessage"></span>
                   <label>Verificar Contrase&ntildea</label>
                 </div>
               </div>
@@ -70,22 +72,7 @@
           <button class="button b1" type="button" onclick="Next()">Siguiente</button>
         </div>
           <p class="footer">Para terminar, haga click en el bot&oacuten finalizar</p>
-          <button class="button b2" type="button">Finalizar</button>
+          <button class="button b2" onclick="validateForm()" type="button">Finalizar</button>
       </div>
-
-
-    <script type="text/javascript">
-    function Next() {
-      var x = document.querySelectorAll('.group1, .group2');
-      var i;
-      for (i = 0; i < x.length; i++) {
-                if (x[i].style.display === "none") {
-                    x[i].style.display = "block";
-                } else {
-                    x[i].style.display = "none";
-                }
-      }
-    }
-    </script>
   </body>
 </html>

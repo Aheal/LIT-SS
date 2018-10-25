@@ -6,8 +6,7 @@ function registrar () {
 function obtenerValores(){
     let obj = {
         nombre: document.getElementById("nombre").value,
-        apellidoP: document.getElementById("apellidoP").value,
-        apellidoM: document.getElementById("apellidoM").value, 
+        apellidos: document.getElementById("apellidos").value,
         correoE: document.getElementById("correoE").value, 
         telefono: document.getElementById("telefono").value,
         genero: document.getElementById("genero").value, 
@@ -30,6 +29,9 @@ function registro_ajax(params) {
         }
     });
 } 
+
+
+
 function checkUser(){
     let obj = {
         alias:  document.getElementById("alias").value
@@ -46,6 +48,9 @@ function checkUser(){
         }
     });
 } 
+
+
+
 function checkEmail(){
     let obj = {
         correoE:  document.getElementById("correoE").value

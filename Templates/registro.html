@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/andriuxStyles.css"><link>
     <link href="//cdn.muicss.com/mui-0.9.41/css/mui.min.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-">
     <script type="text/javascript" src="../JS/scripts.js"></script>
   </head>
   <body>
@@ -16,39 +16,39 @@
           <form name="data">
             <div class="sides">
               <div class="group1" class="left">
-                <input name="name" type="text" required>
+                <input name="nombre" id="nombre" onkeyup="AllowAlphabet(document.getElementById('nombre'))" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Nombre</label>
               </div>
               <div class="group1" class="right">
-                <input name="lastname" type="text" required>
+                <input name="apellidos" id="apellidos" onkeyup="AllowAlphabet(document.getElementById('apellidos'))" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Apellidos</label>
               </div>
             </div>
-              <div class="group1" >
-                <input name="email" type="text" required>
+              <div class="group1">
+                <input name="correoE" id="correoE" onchange="AllowEmail(document.getElementById('correoE'))"  type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Email</label>
               </div>
               <div class="group1">
-                <input name="phone" type="text" required>
+                <input name="telefono"  id="telefono" onkeyup="AllowNumbers(document.getElementById('telefono'))"  type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Tel&eacutefono</label>
               </div>
               <div class="group1">
-                <input name="gender" type="text" required>
+                <input name="genero" id="genero" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>G&eacutenero</label>
               </div>
 
               <div class="group2" style="display: none">
-                <input name="user" type="text" required>
+                <input name="alias" id="alias" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Usuario</label>

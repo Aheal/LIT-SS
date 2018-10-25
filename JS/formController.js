@@ -108,9 +108,35 @@ function AllowEmail(form){
     form.value="";
     form.focus();
     alert("Verifique su correo electronico");
+    } else {
+        verifyEmail(form.value);
     }
+} 
+
+function verifyEmail(email){
+    let obj = {
+        correoE:  email
+    };
+    $.ajax({
+        type: "POST",
+        url: "../BS/verifyEmail.php",
+        data: {
+            json: JSON.stringify(obj)
+        },
+        success: function (response) {
+            //service.php response
+            console.log(response); 
+            alertEmail(response);
+        }
+    });
 }
 
+function alertEmail (response) {
+    if (response == "0")
+        alert("the email is not in the db");
+    else if (response == "1")
+        alert("the email is in the db");
+}
 
 function AllowNumbers(form){
     

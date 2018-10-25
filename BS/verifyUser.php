@@ -5,7 +5,6 @@ $json = filter_input(INPUT_POST, 'json');
 $decoded_json = json_decode($json);
 $alias = $decoded_json->alias; 
 
-var_dump($decoded_json);
 
 $sql = $conn->prepare("SELECT Alias FROM Usuarios WHERE Alias = ? "); 
 $sql -> bind_param("s",$alias);

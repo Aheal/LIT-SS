@@ -16,7 +16,7 @@ $sql = $conn->prepare("INSERT INTO Usuarios (Nombre,Apellidos,Correo_e,Telefono,
 $sql -> bind_param("ssssss",$nombre,$apellidos,$correoE,$telefono,$genero,$alias);
 $sql -> execute();
 
-echo"New record created successfully";
+echo"1";
 
 $sql->close();
 $conn -> close();

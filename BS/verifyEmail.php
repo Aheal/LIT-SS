@@ -14,9 +14,9 @@ $sql -> bind_result($exists);
 $sql  -> fetch();
 
 if($exists){
-    echo "si ta!";
+    echo "1";
 } else {
-    echo "no ta!";
+    echo "0";
 }
 
 $sql->close();

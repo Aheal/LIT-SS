@@ -63,14 +63,14 @@ function checkPass()
         //the user that they have entered the correct password 
         pass2.style.backgroundColor = goodColor;
         message.style.color = goodColor;
-        message.innerHTML = "Passwords Match!"
+        message.innerHTML = "Coinciden!"
     }else{
         //The passwords do not match.
         //Set the color to the bad color and
         //notify the user.
         pass2.style.backgroundColor = badColor;
         message.style.color = badColor;
-        message.innerHTML = "Passwords Do Not Match!"
+        message.innerHTML = "No Coinciden!"
     }
 }
 
@@ -96,7 +96,7 @@ function AllowAlphabet(form){
     {
     form.value="";
     form.focus();
-    alert("Please Enter only alphabets in text");
+    alert("Ingrese solo Letras");
     }
     }
 
@@ -121,4 +121,14 @@ function AllowNumbers(form){
     form.focus();
     alert("Verifique Numero Telefonico");
     }
+}
+
+function checkform()
+{
+    var f = document.forms["data"].elements;
+    var cansubmit = true;
+    for (var i = 0; i < f.length; i++) {
+        if (f[i].value.length == 0) cansubmit = false;
+    }
+    document.getElementById('fin').disabled = !cansubmit;
 }

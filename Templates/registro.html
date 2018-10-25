@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/andriuxStyles.css"><link>
     <link href="//cdn.muicss.com/mui-0.9.41/css/mui.min.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8">
     <script type="text/javascript" src="../JS/scripts.js"></script>
   </head>
   <body>
@@ -16,39 +16,43 @@
           <form name="data">
             <div class="sides">
               <div class="group1" class="left">
-                <input name="nombre" id="nombre" onkeyup="AllowAlphabet(document.getElementById('nombre'))" type="text" required>
+                <input name="nombre" id="nombre"   onkeyup="AllowAlphabet(document.getElementById('nombre'))" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Nombre</label>
               </div>
               <div class="group1" class="right">
-                <input name="apellidos" id="apellidos" onkeyup="AllowAlphabet(document.getElementById('apellidos'))" type="text" required>
+                <input name="apellidos" id="apellidos"   onkeyup="AllowAlphabet(document.getElementById('apellidos'))" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Apellidos</label>
               </div>
             </div>
               <div class="group1">
-                <input name="correoE" id="correoE" onchange="AllowEmail(document.getElementById('correoE'))"  type="text" required>
+                <input name="correoE" id="correoE"   onchange="AllowEmail(document.getElementById('correoE'))"  type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Email</label>
               </div>
               <div class="group1">
-                <input name="telefono"  id="telefono" onkeyup="AllowNumbers(document.getElementById('telefono'))"  type="text" required>
+                <input name="telefono"  id="telefono"   onkeyup="AllowNumbers(document.getElementById('telefono'))"  type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Tel&eacutefono</label>
               </div>
-              <div class="group1">
-                <input name="genero" id="genero" type="text" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label>G&eacutenero</label>
-              </div>
+              <div class="group1" class="select">
+                  <select class="select-text" required>
+                    
+                    <option value="H">Hombre</option>
+                    <option value="M">Mujer</option>
+                  </select>
+                  <span class="select-highlight"></span>
+                  <span class="select-bar"></span>
+                  <label class="select-label">Sexo</label>
+                </div>
 
               <div class="group2" style="display: none">
-                <input name="alias" id="alias" type="text" required>
+                <input name="alias" id="alias"  type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Usuario</label>
@@ -61,7 +65,7 @@
                   <label>Contrase&ntildea</label>
                 </div>
                 <div class="group2" class="right" style="display: none">
-                  <input name="random2"  type="password" id="pass2" onkeyup="checkPass(); return false;" required>
+                  <input name="random2"  type="password"   id="pass2" onkeyup="checkPass(); return false;" required>
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <span id="confirmMessage" class="confirmMessage"></span>
@@ -72,7 +76,7 @@
           <button class="button b1" type="button" onclick="Next()">Siguiente</button>
         </div>
           <p class="footer">Para terminar, haga click en el bot&oacuten finalizar</p>
-          <button class="button b2" onclick="validateForm()" type="button">Finalizar</button>
+          <button class="button b2" onclick="validateForm()" disabled="disabled" id="fin" type="button">Finalizar</button>
       </div>
   </body>
 </html>

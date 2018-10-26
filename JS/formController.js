@@ -8,7 +8,27 @@ function validateForm() {
     var f = document.forms["data"]["alias"].value;
     var g = document.forms["data"]["random1"].value;
 }
-*/
+*/ 
+
+var flagAlias = false; 
+var flagEmail = false;
+
+function registrar (){
+    registro(obtenerValores()); 
+    reset();
+
+}
+
+function reset () {
+    document.getElementById("nombre").value = "";
+    document.getElementById("apellidos").value = "";
+    document.getElementById("correoE").value = "";
+    document.getElementById("telefono").value = "";
+    document.getElementById("alias").value = "";
+    document.getElementById("pass1").value = "";
+    document.getElementById("pass2").value = "";
+
+}
 
 function obtenerValores(){
     let obj = {
@@ -16,13 +36,13 @@ function obtenerValores(){
         apellidos: document.getElementById("apellidos").value,
         correoE: document.getElementById("correoE").value, 
         telefono: document.getElementById("telefono").value,
-        genero: document.getElementById("genero").value, 
+        genero: $( "#genero option:selected" ).text(), 
         alias: document.getElementById("alias").value
     };     
     return obj;
 }
 
-function registro_ajax(params) {
+function registro(params) {
     let obj = params;
     $.ajax({
         type: "POST",
@@ -32,7 +52,6 @@ function registro_ajax(params) {
         },
         success: function (response) {
             //service.php response
-            console.log(response);
             alert("Registro exitoso!");
         }
     });
@@ -95,7 +114,6 @@ function verifyEmail(email){
         },
         success: function (response) {
             //service.php response
-            console.log(response); 
             alertEmail(response);
         }
     });
@@ -113,7 +131,6 @@ function verifyAlias(Alias){
         },
         success: function (response) {
             //service.php response
-            console.log(response); 
             alertAlias(response);
         }
     });
@@ -140,17 +157,25 @@ function verifyTelephone(telephone){
 // Alerts
 
 function alertEmail (response) {
-    if (response == "0")
-        alert("El Email est\xE1 disponible");
-    else if (response == "1")
+    if (response == "0"){
+        alert("El Email est\xE1 disponible"); 
+        flagEmail = true;
+    }
+    else if (response == "1"){
         alert("ERROR\nEl Email ya est\xE1 registrado");
+        flagEmail = false;
+    }
 }
 
 function alertAlias (response) {
-    if (response == "0")
+    if (response == "0"){
         alert("El usuario est\xE1 disponible");
-    else if (response == "1")
+        flagAlias = true;
+    }
+    else if (response == "1"){
         alert("ERROR\nEl usuario ya est\xE1 registrado");
+        flagAlias = false;
+    }
 }
 
 function alertName (response) {
@@ -234,6 +259,11 @@ function checkform()
     var cansubmit = true;
     for (var i = 0; i < f.length; i++) {
         if (f[i].value.length == 0) cansubmit = false;
+    } 
+    if(flagAlias && flagEmail){
+        document.getElementById('fin').disabled = !cansubmit;
+    } else {
+        document.getElementById('fin').disabled = true;
+
     }
-    document.getElementById('fin').disabled = !cansubmit;
 }

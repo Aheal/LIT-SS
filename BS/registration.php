@@ -10,8 +10,6 @@ $telefono = $decoded_json->telefono;
 $genero = $decoded_json->genero; 
 $alias = $decoded_json->alias;
 
-var_dump($decoded_json);
-
 $sql = $conn->prepare("INSERT INTO Usuarios (Nombre,Apellidos,Correo_e,Telefono,Genero,Alias) VALUES (?,?,?,?,?,?)"); 
 $sql -> bind_param("ssssss",$nombre,$apellidos,$correoE,$telefono,$genero,$alias);
 $sql -> execute();

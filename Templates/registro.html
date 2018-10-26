@@ -15,33 +15,32 @@
           <form name="data">
             <div class="sides">
               <div class="group1" class="left">
-                <input name="nombre" id="nombre"   onkeyup="AllowAlphabet(document.getElementById('nombre'))" type="text" required>
+                <input name="nombre" id="nombre"   onkeyup="AllowAlphabet(document.getElementById('nombre'))" type="text" onKeyup="checkform()" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Nombre</label>
               </div>
               <div class="group1" class="right">
-                <input name="apellidos" id="apellidos"   onkeyup="AllowAlphabet(document.getElementById('apellidos'))" type="text" required>
+                <input name="apellidos" id="apellidos"   onkeyup="AllowAlphabet(document.getElementById('apellidos'))" type="text" onKeyup="checkform()" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Apellidos</label>
               </div>
             </div>
               <div class="group1">
-                <input name="correoE" id="correoE"   onchange="AllowEmail(document.getElementById('correoE'))"  type="text" required>
+                <input name="correoE" id="correoE"   onchange="AllowEmail(document.getElementById('correoE'))"  type="text" onKeyup="checkform()" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Email</label>
               </div>
               <div class="group1">
-                <input name="telefono"  id="telefono"   onkeyup="AllowNumbers(document.getElementById('telefono'))"  type="text" required>
+                <input name="telefono"  id="telefono"   onkeyup="AllowNumbers(document.getElementById('telefono'))"  type="text" onKeyup="checkform()" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Tel&eacutefono</label>
               </div>
               <div class="group1" class="select">
                   <select class="select-text" required>
-                    
                     <option value="H">Hombre</option>
                     <option value="M">Mujer</option>
                   </select>
@@ -51,20 +50,20 @@
                 </div>
 
               <div class="group2" style="display: none">
-                <input name="alias" id="alias"  type="text" required>
+                <input name="alias" id="alias"  type="text" onKeyup="checkform()" onchange="AllowAlias(document.getElementById('alias'))"  required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Usuario</label>
               </div>
               <div class="sides">
                 <div class="group2" class="left" style="display: none">
-                  <input name="random1" type="password" id="pass1"required>
+                  <input name="random1" type="password" onKeyup="checkform()" id="pass1" required>
                   <span class="highlight"></span>
                   <span class="bar"></span>
-                  <label>Contrase&ntildea</label>
+                  <label>Contrase&ntilde;a</label>
                 </div>
                 <div class="group2" class="right" style="display: none">
-                  <input name="random2"  type="password"   id="pass2" onkeyup="checkPass(); return false;" required>
+                  <input name="random2"  type="password" onchange="checkform()" id="pass2" onKeyup="checkPass(); return false;" required>
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <span id="confirmMessage" class="confirmMessage"></span>
@@ -75,12 +74,12 @@
           <button class="button b1" type="button" onclick="Next()">Siguiente</button>
         </div>
           <p class="footer">Para terminar, haga click en el bot&oacuten finalizar</p>
-          <button class="button b2" onclick="validateForm()" disabled="disabled" id="fin" type="button">Finalizar</button>
+          <button class="button b2" onclick="registrar()" disabled="disabled" id="fin" type="button">Finalizar</button>
       </div> 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../JS/formController.js"></script>
+    <script type="text/javascript" src="../JS/formController.js" charset="utf-8" ></script>
   </body>
 </html>

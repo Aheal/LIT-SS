@@ -1,3 +1,4 @@
+/*
 function validateForm() {
     var a = document.forms["data"]["nombre"].value;
     var b = document.forms["data"]["apellidos"].value;
@@ -7,17 +8,7 @@ function validateForm() {
     var f = document.forms["data"]["alias"].value;
     var g = document.forms["data"]["random1"].value;
 }
-
-function onlyAlphabetical(input){
-    var regex = /^[a-zA-Z]*$/;
-    var OK = re.exec(input.value);  
-    if (!OK)  
-      window.alert(input.value + ' Contiene caracteres no validos');  
-    else
-      window.alert('Thanks, your phone number is ' + OK[0]); 
-}
-
-
+*/
 
 function obtenerValores(){
     let obj = {
@@ -31,6 +22,21 @@ function obtenerValores(){
     return obj;
 }
 
+function registro_ajax(params) {
+    let obj = params;
+    $.ajax({
+        type: "POST",
+        url: "../BS/registration.php",
+        data: {
+            json: JSON.stringify(obj)
+        },
+        success: function (response) {
+            //service.php response
+            console.log(response);
+            alert("Registro exitoso!");
+        }
+    });
+} 
 
 
 function Next() {
@@ -76,43 +82,7 @@ function checkPass()
 
 
 
-
-/*
-function emailValidation(inputtext, alertMsg){
-    var emailExp = /^[w-.+]+@[a-zA-Z0-9.-]+.[a-zA-z0-9]{2,4}$/;
-    if(inputtext.value.match(emailExp)){
-    return true;
-    }else{
-    document.getElementById('p3').innerText = alertMsg;
-    inputtext.focus();
-    return false;
-    }
-}
-*/
-
-function AllowAlphabet(form){
-    var re = /^[a-zA-Z ]+$/;
-    if (!form.value.match(re) && form.value !=="")
-    {
-    form.value="";
-    form.focus();
-    alert("Ingrese solo Letras");
-    }
-    }
-
-function AllowEmail(form){
-    
-    var re = /\S+@\S+\.\S+/;
-    if (!form.value.match(re) && form.value !=="")
-    {
-    form.value="";
-    form.focus();
-    alert("Verifique su correo electronico");
-    } else {
-        verifyEmail(form.value);
-    }
-} 
-
+// Verify
 function verifyEmail(email){
     let obj = {
         correoE:  email
@@ -131,13 +101,73 @@ function verifyEmail(email){
     });
 }
 
-function alertEmail (response) {
-    if (response == "0")
-        alert("the email is not in the db");
-    else if (response == "1")
-        alert("the email is in the db");
+function verifyAlias(Alias){
+    let obj = {
+        alias:  Alias
+    };
+    $.ajax({
+        type: "POST",
+        url: "../BS/verifyAlias.php",
+        data: {
+            json: JSON.stringify(obj)
+        },
+        success: function (response) {
+            //service.php response
+            console.log(response); 
+            alertAlias(response);
+        }
+    });
 }
 
+function verifyTelephone(telephone){
+    let obj = {
+        Telefono:  telephone
+    };
+    $.ajax({
+        type: "POST",
+        url: "../BS/verifyTelephone.php",
+        data: {
+            json: JSON.stringify(obj)
+        },
+        success: function (response) {
+            //service.php response
+            console.log(response); 
+            alertTelephone(response);
+        }
+    });
+}
+
+// Alerts
+
+function alertEmail (response) {
+    if (response == "0")
+        alert("El Email est\xE1 disponible");
+    else if (response == "1")
+        alert("ERROR\nEl Email ya est\xE1 registrado");
+}
+
+function alertAlias (response) {
+    if (response == "0")
+        alert("El usuario est\xE1 disponible");
+    else if (response == "1")
+        alert("ERROR\nEl usuario ya est\xE1 registrado");
+}
+
+function alertName (response) {
+    if (response == "0")
+        alert("El Email est\xE1 disponible");
+    else if (response == "1")
+        alert("ERROR\nEl usuario ya est\xE1 registrado");
+}
+
+function alertPhone (response) {
+    if (response == "0")
+        alert("El Tel\xE9fono est\xE1 disponible");
+    else if (response == "1")
+        alert("ERROR\nEl Tel\xE9fono ya est\xE1 registrado");
+}
+
+//Allows: Regex and AJAX
 function AllowNumbers(form){
     
     var re = /^[0-9]*$/;
@@ -145,9 +175,58 @@ function AllowNumbers(form){
     {
     form.value="";
     form.focus();
-    alert("Verifique Numero Telefonico");
+    alert("Verifique N\xFAmero Telef\xF3nico");
     }
 }
+
+
+function AllowAlias(form){
+    
+    var re = /^[a-zA-Z0-9]*$/;
+    if (!form.value.match(re) && form.value !=="")
+    {
+    form.value="";
+    form.focus();
+    alert("Ingrese solo Letras");
+    } else {
+        verifyAlias(form.value);
+    }
+}
+
+function AllowAlphabet(form){
+    var re = /^[a-zA-Z ]+$/;
+    if (!form.value.match(re) && form.value !=="")
+    {
+    form.value="";
+    form.focus();
+    alert("Ingrese solo Letras");
+    }
+}
+
+function AllowAlphabetandNumbers(form){
+    var re = /^[a-zA-Z0-9]*$/;
+    if (!form.value.match(re) && form.value !=="")
+    {
+    form.value="";
+    form.focus();
+    alert("Ingrese solo Letras y Numeros");
+    }
+}
+
+
+function AllowEmail(form){
+    
+    var re = /\S+@\S+\.\S+/;
+    if (!form.value.match(re) && form.value !=="")
+    {
+    form.value="";
+    form.focus();
+    alert("Verifique su correo electronico");
+    } else {
+        verifyEmail(form.value);
+    }
+} 
+
 
 function checkform()
 {

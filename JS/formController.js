@@ -14,12 +14,12 @@ var flagAlias = false;
 var flagEmail = false;
 
 function registrar (){
+
     registro(obtenerValores()); 
     reset();
-
 }
-
 function reset () {
+
     document.getElementById("nombre").value = "";
     document.getElementById("apellidos").value = "";
     document.getElementById("correoE").value = "";
@@ -27,10 +27,9 @@ function reset () {
     document.getElementById("alias").value = "";
     document.getElementById("pass1").value = "";
     document.getElementById("pass2").value = "";
-
 }
-
 function obtenerValores(){
+
     let obj = {
         nombre: document.getElementById("nombre").value,
         apellidos: document.getElementById("apellidos").value,
@@ -41,8 +40,8 @@ function obtenerValores(){
     };     
     return obj;
 }
-
 function registro(params) {
+
     let obj = params;
     $.ajax({
         type: "POST",
@@ -56,11 +55,10 @@ function registro(params) {
         }
     });
 } 
-
-
 function Next() {
-    var x = document.querySelectorAll('.group1, .group2');
-    var i;
+
+    let x = document.querySelectorAll('.group1, .group2');
+    let i;
     for (i = 0; i < x.length; i++) {
               if (x[i].style.display === "none") {
                   x[i].style.display = "block";
@@ -69,17 +67,16 @@ function Next() {
               }
     }
 }
-
 function checkPass()
 {
     //Store the password field objects into variables ...
-    var pass1 = document.getElementById('pass1');
-    var pass2 = document.getElementById('pass2');
+    let pass1 = document.getElementById('pass1');
+    let pass2 = document.getElementById('pass2');
     //Store the Confimation Message Object ...
-    var message = document.getElementById('confirmMessage');
+    let message = document.getElementById('confirmMessage');
     //Set the colors we will be using ...
-    var goodColor = "#a5d6a7";
-    var badColor = "#ef9a9a";
+    let goodColor = "#a5d6a7";
+    let badColor = "#ef9a9a";
     //Compare the values in the password field 
     //and the confirmation field
     if(pass1.value == pass2.value){
@@ -98,7 +95,6 @@ function checkPass()
         message.innerHTML = "No Coinciden!"
     }
 }
-
 function checkUser(response){
 
     let pass1 = document.getElementById('alias');
@@ -120,7 +116,6 @@ function checkUser(response){
         message.innerHTML = "ERROR\nEl usuario ya est\xE1 registrado";
     }
 } 
-
 function checkEmail(response){
 
     let pass1 = document.getElementById('correoE');
@@ -142,9 +137,9 @@ function checkEmail(response){
         message.innerHTML = "ERROR\nEl email ya est\xE1 registrado";
     }
 }
-
 // Verify
 function verifyEmail(email){
+
     let obj = {
         correoE:  email
     };
@@ -160,8 +155,8 @@ function verifyEmail(email){
         }
     });
 }
-
 function verifyAlias(Alias){
+
     let obj = {
         alias:  Alias
     };
@@ -177,8 +172,8 @@ function verifyAlias(Alias){
         }
     });
 }
-
 function verifyTelephone(telephone){
+
     let obj = {
         Telefono:  telephone
     };
@@ -195,49 +190,10 @@ function verifyTelephone(telephone){
         }
     });
 }
-
-// Alerts
-
-function alertEmail (response) {
-    if (response == "0"){
-        alert("El Email est\xE1 disponible"); 
-        flagEmail = true;
-    }
-    else if (response == "1"){
-        alert("ERROR\nEl Email ya est\xE1 registrado");
-        flagEmail = false;
-    }
-}
-
-function alertAlias (response) {
-    if (response == "0"){
-        alert("El usuario est\xE1 disponible");
-        flagAlias = true;
-    }
-    else if (response == "1"){
-        alert("ERROR\nEl usuario ya est\xE1 registrado");
-        flagAlias = false;
-    }
-}
-
-function alertName (response) {
-    if (response == "0")
-        alert("El Email est\xE1 disponible");
-    else if (response == "1")
-        alert("ERROR\nEl usuario ya est\xE1 registrado");
-}
-
-function alertPhone (response) {
-    if (response == "0")
-        alert("El Tel\xE9fono est\xE1 disponible");
-    else if (response == "1")
-        alert("ERROR\nEl Tel\xE9fono ya est\xE1 registrado");
-}
-
 //Allows: Regex and AJAX
 function AllowNumbers(form){
-    
-    var re = /^[0-9]*$/;
+
+    let re = /^[0-9]*$/;
     if (!form.value.match(re) && form.value !=="")
     {
     form.value="";
@@ -245,11 +201,9 @@ function AllowNumbers(form){
     alert("Verifique N\xFAmero Telef\xF3nico");
     }
 }
-
-
 function AllowAlias(form){
-    
-    var re = /^[a-zA-Z0-9]*$/;
+
+    let re = /^[a-zA-Z0-9]*$/;
     if (!form.value.match(re) && form.value !=="")
     {
     form.value="";
@@ -259,8 +213,8 @@ function AllowAlias(form){
         verifyAlias(form.value);
     }
 }
-
 function AllowAlphabet(form){
+
     let re = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;    if (!form.value.match(re) && form.value !=="")
     if (!form.value.match(re) && form.value !==""){
     form.value="";
@@ -268,9 +222,9 @@ function AllowAlphabet(form){
     alert("Ingrese solo Letras");
     }
 }
-
 function AllowAlphabetandNumbers(form){
-    var re = /^[a-zA-Z0-9]*$/;
+
+    let re = /^[a-zA-Z0-9]*$/;
     if (!form.value.match(re) && form.value !=="")
     {
     form.value="";
@@ -278,11 +232,9 @@ function AllowAlphabetandNumbers(form){
     alert("Ingrese solo Letras y Numeros");
     }
 }
-
-
 function AllowEmail(form){
     
-    var re = /\S+@\S+\.\S+/;
+    let re = /\S+@\S+\.\S+/;
     if (!form.value.match(re) && form.value !=="")
     {
     form.value="";
@@ -292,12 +244,10 @@ function AllowEmail(form){
         verifyEmail(form.value);
     }
 } 
+function checkform(){
 
-
-function checkform()
-{
-    var f = document.forms["data"].elements;
-    var cansubmit = true;
+    let f = document.forms["data"].elements;
+    let cansubmit = true;
     for (var i = 0; i < f.length; i++) {
         if (f[i].value.length == 0) cansubmit = false;
     } 

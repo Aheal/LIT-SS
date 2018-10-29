@@ -78,8 +78,8 @@ function checkPass()
     //Store the Confimation Message Object ...
     var message = document.getElementById('confirmMessage');
     //Set the colors we will be using ...
-    var goodColor = "#66cc66";
-    var badColor = "#ff6666";
+    var goodColor = "#a5d6a7";
+    var badColor = "#ef9a9a";
     //Compare the values in the password field 
     //and the confirmation field
     if(pass1.value == pass2.value){
@@ -99,7 +99,49 @@ function checkPass()
     }
 }
 
+function checkUser(response){
 
+    let pass1 = document.getElementById('alias');
+    let message = document.getElementById('confirmMessage-a');
+
+    let goodColor = "#a5d6a7";
+    let badColor = "#ef9a9a";
+    
+    if (response == "0"){
+        flagAlias = true;
+        pass1.style.backgroundColor = goodColor;
+        message.style.color = goodColor; 
+        message.innerHTML = "El usuario est\xE1 disponible";
+    }
+    else if (response == "1"){
+        flagAlias = false; 
+        pass1.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "ERROR\nEl usuario ya est\xE1 registrado";
+    }
+} 
+
+function checkEmail(response){
+
+    let pass1 = document.getElementById('correoE');
+    let message = document.getElementById('confirmMessage-e');
+
+    let goodColor = "#a5d6a7";
+    let badColor = "#ef9a9a";
+    
+    if (response == "0"){
+        flagAlias = true;
+        pass1.style.backgroundColor = goodColor;
+        message.style.color = goodColor; 
+        message.innerHTML = "El email est\xE1 disponible";
+    }
+    else if (response == "1"){
+        flagAlias = false; 
+        pass1.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "ERROR\nEl email ya est\xE1 registrado";
+    }
+}
 
 // Verify
 function verifyEmail(email){
@@ -114,7 +156,7 @@ function verifyEmail(email){
         },
         success: function (response) {
             //service.php response
-            alertEmail(response);
+            checkEmail(response);
         }
     });
 }
@@ -131,7 +173,7 @@ function verifyAlias(Alias){
         },
         success: function (response) {
             //service.php response
-            alertAlias(response);
+            checkUser(response);
         }
     });
 }
@@ -219,9 +261,8 @@ function AllowAlias(form){
 }
 
 function AllowAlphabet(form){
-    var re = /^[a-zA-Z ]+$/;
-    if (!form.value.match(re) && form.value !=="")
-    {
+    let re = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;    if (!form.value.match(re) && form.value !=="")
+    if (!form.value.match(re) && form.value !==""){
     form.value="";
     form.focus();
     alert("Ingrese solo Letras");

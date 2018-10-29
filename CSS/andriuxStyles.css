@@ -1,101 +1,79 @@
-* { box-sizing:border-box; }
+* { box-sizing:border-box; font-family: 'Encode Sans', sans-serif !important; }
 
 /* basic stylings ------------------------------------------ */
+
 .container, .parent{
-  font-family:'Roboto';
-
   display:block;
-
-
 }
-
-html, body {height: 100%;}
-
+html, body {height: 100%;  }
 body{
   background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(https://images.pexels.com/photos/1298533/pexels-photo-1298533.jpeg?cs=srgb&amp;dl=adventure-alps-cold-1298533.jpg);
-  padding-top: 9%;
+  padding-top: 5%;
 }
-
 .button {
     background-color: #e7e7e7; /* Gray */
     border: none;
     color: Black;
-    padding: 15px 32px;
+    padding: 12px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 10px; 
 }
-
 .button:disabled {
   background-color: #e7e7e7; /* Gray */
   border: none;
   color: Black;
-  padding: 15px 32px;
+  padding: 12px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 18px;
   opacity: 0.6;
   cursor: not-allowed;
 }
-
-
-
-
-
-
-
-
 .button.b1{
     position: absolute;
     left: 506px;
-    top: 454px;
+    top: 408px;
 }
 .button.b2{
     position: absolute;
-    left: 457px;
-    top: 557px;
+    left: 408px;
+    top: 604px;
 }
-
-.container{
-  width:620px;
-  height:400px;
-  padding:36px 50px 50px;
-  background:#ffffff;
-  margin:35px auto 0;
-}
-
-
 .parent{
   position: relative;
-  width:600px;
-  height: 620px;
+  width: 550px;
+  height: 650px;
   padding:5px 50px;
   background:#D59E30;
   margin:0 auto;
 }
-
-img {
+.container{
+  width: 550px;
+  height: 485px;
+  padding: 36px 50px 50px;
+  background:#ffffff;
+}
+img{
   position: absolute;
-  left: -140px;
-  top: -150px;
+  left: -100px;
+  top: -125px;
   z-index: 3;
+  width: 250px;
 }
-
-
-
-.parent
-h2 		 {
-  text-align:center;
-  margin-bottom:50px;
+h2{
+  text-align:left;
+  margin-bottom: 40px !important; 
+  margin-top: 40px !important;
 }
-h2 small {
+h2 small{
   font-weight:normal;
   color:#FBFBFB;
   display:block;
 }
-.footer 	{
+.footer{
   font-size:18px;
   padding-top: 25px;
   padding-left: 30px;
@@ -104,47 +82,47 @@ h2 small {
   color:#FBFBFB;
   display:block;
 }
-
-
-.sides {
+.sides{
   display: flex;
 }
-.left {
+.left{
   float:left;
   width:75%;
   overflow:hidden;
 }
-.right {
+.right{
   float:left;
   width:25%;
   overflow:hidden;
 }
 
 /* form starting stylings ------------------------------- */
-.group1, .group2 			  {
+
+.group1, .group2{
+  width: 50%;
   position:relative;
   margin-bottom:45px;
-  padding-right: 60px;
-}
-
+} 
 .group2{
-
-  display: none;
+  width: 100%;
 }
-
-
-input				{
+input{
   font-size:18px;
   padding:10px 10px 10px 5px;
   display:block;
-  width:200px;
+  width: 100%;
   border:none;
-  border-bottom:1px solid #757575;
+  border-bottom:1px solid #9e9e9e; 
+  line-height: 1.5 !important;
+} 
+.border-r{
+  border-right:1px solid #9e9e9e    ;
 }
-input:focus 		{ outline:none; }
+input:focus{ outline:none; }
 
 /* LABEL ======================================= */
-label 				 {
+
+label{
   color:#999;
   font-size:18px;
   font-weight:normal;
@@ -156,27 +134,23 @@ label 				 {
   -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
 }
-
 /* active state */
-input:focus ~ label, input:valid ~ label 		{
+input:focus ~ label, input:valid ~ label {
   top:-20px;
   font-size:14px;
-  color:#5264AE;
+  color:#424242 ;
 }
 
-
-
-
-
 /* BOTTOM BARS ================================= */
-.bar 	{ position:relative; display:block; width:200px; }
+
+.bar 	{ position:relative; display:block; width: 100%; }
 .bar:before, .bar:after 	{
   content:'';
   height:2px;
   width:0;
-  bottom:1px;
+  bottom:0px;
   position:absolute;
-  background:#5264AE;
+  background:#424242 ;
   transition:0.2s ease all;
   -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
@@ -187,13 +161,13 @@ input:focus ~ label, input:valid ~ label 		{
 .bar:after {
   right:50%;
 }
-
 /* active state */
 input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
 }
 
 /* HIGHLIGHTER ================================== */
+
 .highlight {
   position:absolute;
   height:60%;
@@ -203,7 +177,6 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
   pointer-events:none;
   opacity:0.5;
 }
-
 /* active state */
 input:focus ~ .highlight {
   -webkit-animation:inputHighlighter 0.3s ease;
@@ -212,43 +185,39 @@ input:focus ~ .highlight {
 }
 
 /* ANIMATIONS ================ */
+
 @-webkit-keyframes inputHighlighter {
-	from { background:#5264AE; }
+	from { background:#424242 ; }
   to 	{ width:0; background:transparent; }
 }
 @-moz-keyframes inputHighlighter {
-	from { background:#5264AE; }
+	from { background:#424242 ; }
   to 	{ width:0; background:transparent; }
 }
 @keyframes inputHighlighter {
-	from { background:#5264AE; }
+	from { background:#424242 ; }
   to 	{ width:0; background:transparent; }
 }
-
 .select-text {
 	position: relative;
-	font-family: inherit;
-	background-color: transparent;
-	width: 200px;
-	padding: 10px 10px 10px 0;
-	font-size: 18px;
-	border-radius: 0;
-	border: none;
-	border-bottom: 1px solid rgba(0,0,0, 0.12);
+  background-color: transparent;
+  width: 100%;
+  padding: 10px 10px 7px 0;
+  font-size: 18px;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
 }
-
 /* Remove focus */
 .select-text:focus {
 	outline: none;
 	border-bottom: 1px solid rgba(0,0,0, 0);
 }
-
-	/* Use custom arrow */
+/* Use custom arrow */
 .select .select-text {
 	appearance: none;
 	-webkit-appearance:none
 }
-
 .select:after {
 	position: absolute;
 	top: 18px;
@@ -264,10 +233,10 @@ input:focus ~ .highlight {
 	pointer-events: none;
 }
 
-
 /* LABEL ======================================= */
+
 .select-label {
-	color: rgba(0,0,0, 0.26);
+	color: #424242 ;
 	font-size: 18px;
 	font-weight: normal;
 	position: absolute;
@@ -276,46 +245,43 @@ input:focus ~ .highlight {
 	top: 10px;
 	transition: 0.2s ease all;
 }
-
 /* active state */
 .select-text:focus ~ .select-label, .select-text:valid ~ .select-label {
-	color: #5264AE;
+	color: #424242 ;
 	top: -20px;
 	transition: 0.2s ease all;
 	font-size: 14px;
 }
 
 /* BOTTOM BARS ================================= */
+
 .select-bar {
 	position: relative;
 	display: block;
 	width: 200px;
 }
-
 .select-bar:before, .select-bar:after {
 	content: '';
 	height: 2px;
 	width: 0;
 	bottom: 1px;
 	position: absolute;
-	background: #5264AE;
+	background: #424242 ;
 	transition: 0.2s ease all;
 }
-
 .select-bar:before {
 	left: 50%;
 }
-
 .select-bar:after {
 	right: 50%;
 }
-
 /* active state */
 .select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
 	width: 50%;
 }
 
 /* HIGHLIGHTER ================================== */
+
 .select-highlight {
 	position: absolute;
 	height: 60%;

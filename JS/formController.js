@@ -215,11 +215,11 @@ function AllowAlias(form){
 }
 function AllowAlphabet(form){
 
-    let re = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;    if (!form.value.match(re) && form.value !=="")
+    let re = /^[a-zA-ZáéíóúÁÉÍÓÚÑñ]*$/;
     if (!form.value.match(re) && form.value !==""){
     form.value="";
     form.focus();
-    alert("Ingrese solo Letras");
+    alert("Ingrese solo Letras wow");
     }
 }
 function AllowAlphabetandNumbers(form){

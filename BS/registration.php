@@ -11,6 +11,8 @@ $genero = $decoded_json->genero;
 $alias = $decoded_json->alias;
 $pass = $decoded_json->pass;
 $codigo = hash("sha256",$alias.$correoE); 
+$hashAlias = hash("sha256",$alias) ;
+$hashPass = hash("sha256",$pass) ;
 $verificado = "0";
 
 $sql = $conn->prepare("INSERT INTO Usuarios (Nombre,Apellidos,Correo_e,Telefono,Genero,Alias,Codigo,Verificado) VALUES (?,?,?,?,?,?,?,?)"); 
@@ -20,8 +22,8 @@ $sql -> bind_param("ssssssss",$nombre,$apellidos,$correoE,$telefono,$genero,$ali
 if($sql -> execute()){
     // echo '1';
     $sql->close();
-    $sql = $conn->prepare("INSERT INTO UWU (Alias,Pss) VALUES");
-    $sql -> bind_param("ss",hash("sha256",$alias),hash("sha256",$pass)); 
+    $sql = $conn->prepare("INSERT INTO UWU (Alias,Pss) VALUES (?,?)");
+    $sql -> bind_param("ss",$hashAlias,$hashPass); 
     if($sql -> execute())
         echo "0";
     else

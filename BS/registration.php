@@ -24,7 +24,8 @@ if($sql -> execute()){
     if($sql2 -> execute())
         echo "0";
     else
-        echo "1";
+        echo "1"; 
+    $sql2 -> close();
 } else {
     echo "1";
 }

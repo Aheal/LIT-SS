@@ -49,7 +49,7 @@ const UIController = (function (){
                         message = document.querySelector(DOMstrings.msgForm); 
                         message.style.background = "#a5d6a7"; 
                         message.style.color = "#fff";
-                        message.innerHTML = "Listo Campeon!";a5d6a7
+                        message.innerHTML = "Listo Campeon!";
                         break;
                     case "1":
                         message = document.querySelector(DOMstrings.msgForm); 

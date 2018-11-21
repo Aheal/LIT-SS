@@ -19,7 +19,7 @@
         if($verificado == "0"){
             echo "2";
         } else {
-            $sql = $conn->prepare("SELECT * FROM uwu WHERE Alias = ? AND Pss = ?");
+            $sql = $conn->prepare("SELECT Alias FROM uwu WHERE Alias = ? AND Pss = ?");
             $sql -> bind_param("ss",$hasAlias,$hashPass); 
         
             if($sql -> execute()){

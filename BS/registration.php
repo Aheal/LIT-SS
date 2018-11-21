@@ -12,9 +12,11 @@ $alias = $decoded_json->alias;
 
 $sql = $conn->prepare("INSERT INTO Usuarios (Nombre,Apellidos,Correo_e,Telefono,Genero,Alias) VALUES (?,?,?,?,?,?)"); 
 $sql -> bind_param("ssssss",$nombre,$apellidos,$correoE,$telefono,$genero,$alias);
-$sql -> execute();
 
-echo"1";
+
+if($sql -> execute()){
+    echo '1';
+}
 
 $sql->close();
 $conn -> close();

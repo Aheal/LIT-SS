@@ -50,8 +50,9 @@ function registro(params) {
             json: JSON.stringify(obj)
         },
         success: function (response) {
-            //service.php response
-            alert("Registro exitoso!");
+            //service.php response 
+            if(response === '1')
+                alert("Registro exitoso!");
         }
     });
 } 
@@ -125,13 +126,13 @@ function checkEmail(response){
     let badColor = "#ef9a9a";
     
     if (response == "0"){
-        flagAlias = true;
+        flagEmail = true;
         pass1.style.backgroundColor = goodColor;
         message.style.color = goodColor; 
         message.innerHTML = "El email est\xE1 disponible";
     }
     else if (response == "1"){
-        flagAlias = false; 
+        flagEmail = false; 
         pass1.style.backgroundColor = badColor;
         message.style.color = badColor;
         message.innerHTML = "ERROR\nEl email ya est\xE1 registrado";

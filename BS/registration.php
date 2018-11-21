@@ -19,18 +19,18 @@ $sql -> bind_param("ssssssss",$nombre,$apellidos,$correoE,$telefono,$genero,$ali
 
 if($sql -> execute()){
     // echo '1';
-    $sql2 = $conn->prepare("INSERT INTO UWU (Alias,Pss) VALUES");
-    $sql2 -> bind_param("ss",hash("sha256",$alias),hash("sha256",$pass)); 
-    if($sql2 -> execute())
+    $sql->close();
+    $sql = $conn->prepare("INSERT INTO UWU (Alias,Pss) VALUES");
+    $sql -> bind_param("ss",hash("sha256",$alias),hash("sha256",$pass)); 
+    if($sql -> execute())
         echo "0";
     else
         echo "1"; 
-    $sql2 -> close();
+    $sql -> close();
 } else {
     echo "1";
 }
 
-$sql->close();
 $conn -> close();
 
 ?>

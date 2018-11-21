@@ -10,7 +10,7 @@ Telefono varchar(70) NOT NULL,
 Genero varchar(40) NOT NULL,
 Alias varchar(80) NOT NULL,
 Codigo varchar(255) NOT NULL, 
-Verificado varchar(4) NOT NULL
+Verificado varchar(4) NOT NULL,
 
 
 CONSTRAINT PK_User PRIMARY KEY (UsuarioID,Alias)
@@ -33,15 +33,9 @@ REFERENCES Usuarios(UsuarioID)
 ON DELETE CASCADE
 )ENGINE = INNODB, CHARSET=utf8mb4;
 
-CREATE TABLE IF NOT EXISTS UWU
+CREATE TABLE IF NOT EXISTS uwu
 (Alias varchar(255) NOT NULL,
-Pss varchar(255) NOT NULL,
-
-
-INDEX (Alias),
-FOREIGN KEY (Alias)
-REFERENCES Usuarios(Alias)
-ON DELETE CASCADE
+Pss varchar(255) NOT NULL
 )ENGINE = INNODB, CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS Perfil_Participantes

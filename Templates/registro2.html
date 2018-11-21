@@ -18,16 +18,17 @@
           <form name="data">
             <div class="sides">
               <div class="group1" class="left">
-                <input name="nombre" id="nombre" class="border-r"   type="text" onfocusout="checkform()" required>
+                <input name="nombre" id="nombre" class="border-r"   type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <span id="confirmMessage-n" class="confirmMessage"></span>
                 <label>Nombre</label>
               </div>
               <div class="group1" class="right">
-                <input name="apellidos" id="apellidos"    type="text" onfocusout="checkform()" required>
+                <input name="apellidos" id="apellidos"    type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
+                <span id="confirmMessage-ln" class="confirmMessage"></span>
                 <label>Apellidos</label>
               </div>
             </div>
@@ -40,9 +41,10 @@
             </div>
             <div class="sides">
               <div class="group1">
-                <input name="telefono"  id="telefono" class="border-r" onkeyup="AllowNumbers(document.getElementById('telefono'))"  type="text" onfocusout="checkform()" required>
+                <input name="telefono"  id="telefono" class="border-r" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
+                <span id="confirmMessage-p" class="confirmMessage"></span> 
                 <label>Tel&eacutefono</label>
               </div>
               <div class="group1" class="select" id="genero">

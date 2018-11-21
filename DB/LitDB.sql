@@ -9,7 +9,8 @@ Correo_e varchar(70) NOT NULL,
 Telefono varchar(70) NOT NULL,
 Genero varchar(40) NOT NULL,
 Alias varchar(80) NOT NULL,
-
+Codigo varchar(255) NOT NULL, 
+Verificado varchar(4) NOT NULL
 
 
 CONSTRAINT PK_User PRIMARY KEY (UsuarioID,Alias)
@@ -29,6 +30,17 @@ ConcursoID varchar(15) NOT NULL,
 INDEX (UsuarioID),
 FOREIGN KEY (UsuarioID)
 REFERENCES Usuarios(UsuarioID)
+ON DELETE CASCADE
+)ENGINE = INNODB, CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS UWU
+(Alias varchar(255) NOT NULL,
+Pss varchar(255) NOT NULL,
+
+
+INDEX (Alias),
+FOREIGN KEY (Alias)
+REFERENCES Usuarios(Alias)
 ON DELETE CASCADE
 )ENGINE = INNODB, CHARSET=utf8mb4;
 
@@ -72,13 +84,3 @@ ContactoSecundario varchar(255) NOT NULL,
 PRIMARY KEY (EscuelaID)
 )ENGINE = INNODB, CHARSET=utf8mb4;
 
-CREATE TABLE IF NOT EXISTS UWU
-(UsuarioID int NOT NULL,
-Psswd varchar(300) NOT NULL,
-
-
-INDEX (UsuarioID),
-FOREIGN KEY (UsuarioID)
-REFERENCES Usuarios(UsuarioID)
-ON DELETE CASCADE
-)ENGINE = INNODB, CHARSET=utf8mb4;

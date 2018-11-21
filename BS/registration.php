@@ -9,13 +9,24 @@ $correoE = $decoded_json->correoE;
 $telefono = $decoded_json->telefono;
 $genero = $decoded_json->genero; 
 $alias = $decoded_json->alias;
+$pass = $decoded_json->pass;
+$codigo = hash("sha256",$alias.$correoE); 
+$verificado = "0";
 
-$sql = $conn->prepare("INSERT INTO Usuarios (Nombre,Apellidos,Correo_e,Telefono,Genero,Alias) VALUES (?,?,?,?,?,?)"); 
-$sql -> bind_param("ssssss",$nombre,$apellidos,$correoE,$telefono,$genero,$alias);
+$sql = $conn->prepare("INSERT INTO Usuarios (Nombre,Apellidos,Correo_e,Telefono,Genero,Alias,Codigo,Verificado) VALUES (?,?,?,?,?,?,?,?)"); 
+$sql -> bind_param("ssssssss",$nombre,$apellidos,$correoE,$telefono,$genero,$alias,$codigo,$verificado);
 
 
 if($sql -> execute()){
-    echo '1';
+    // echo '1';
+    $sql2 = $conn->prepare("INSERT INTO UWU (Alias,Pss) VALUES");
+    $sql2 -> bind_param("ss",hash("sha256",$alias),hash("sha256",$pass)); 
+    if($sql2 -> execute())
+        echo "0";
+    else
+        echo "1";
+} else {
+    echo "1";
 }
 
 $sql->close();

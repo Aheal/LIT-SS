@@ -3,11 +3,21 @@
   <head>
       <meta charset="utf-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Log In</title>
+      <title>Log in</title>
     <link rel="stylesheet" type="text/css" href="../CSS/andriuxStyles.css"><link>
     <link href="//cdn.muicss.com/mui-0.9.41/css/mui.min.css" rel="stylesheet" type="text/css" /> 
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans:400,700" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <style>
+      #message-f{
+        line-height: 14px;
+        height:75px;
+        margin: 0px;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 10px
+      }
+    </style>
 ¿  </head>
   <body>
 
@@ -26,12 +36,13 @@
                 <input name="pass" id="pass" type="password" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <span id="confirmMessage-e" class="confirmMessage"></span>
+                <span id="confirmMessage-p" class="confirmMessage"></span>
                 <label>Contraseña</label>
-            </div>
+            </div> 
+            <p id="message-f"></p>
           </form>
         </div>
-          <button class="button b2" disabled="disabled" id="login" type="button">Log in</button>
+          <button class="button b2" id="login" type="button">Log in</button>
       </div> 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

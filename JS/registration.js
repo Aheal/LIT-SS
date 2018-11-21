@@ -2,8 +2,11 @@ const registrationController =  (function (){
     const AllowEmail = (email) => {
         let re = /\S+@\S+\.\S+/; 
         console.log(email)
-        if (!email.match(re) && email !== "")
+        if (!email.match(re))
         {
+            if(email === ''){
+                return false;    
+            }
             console.log('escriba bien su email');
             return false;
         } else {
@@ -12,13 +15,35 @@ const registrationController =  (function (){
             return true;
         }
     };
+    const AllowSpecialChar = (name) => {
+        let re = /^[a-zA-ZáéíóúÁÉÍÓÚÑñ ]*$/;
+        if (!name.match(re))
+        {
+            if(name === ''){
+                console.log(`VACIO`);
+                return false;  
+            }
+            console.log(`Falla normal`);
+            return false;
+        } else {
+            console.log(`Cumple`);
+            return true;
+        }
+    };
+
+
+
     return{
         checkPass: function (pass1,pass2){
             return pass1 === pass2 && pass1 !=="" && pass2 !=="" ? true : false;  
         }, 
         checkEmail:  function(email){
             return AllowEmail(email);
+        },
+        checkName: function(name){
+            return AllowSpecialChar(name);
         }
+
     }
 })();
 
@@ -36,6 +61,7 @@ const UIController = (function (){
         confirmationMsgPsswd: '#confirmMessage',
         confirmationMsgEmail: '#confirmMessage-e',
         confirmationMsgUser: "#confirmMessage-a",
+        confirmationMsgName: "#confirmMessage-n",
         btnRegistration: "#finalizar"
     }  
     
@@ -94,18 +120,25 @@ const UIController = (function (){
     const updateMail = (flag) => {
         let goodColor, badColor, message;
         goodColor = "#a5d6a7";
-        badColor = "#ef9a9a"; 
+        badColor = "#ef9a9a";
+        neutralColor = "#FFFFFF";
         message = document.querySelector(DOMstring.confirmationMsgEmail);
-
-        if(flag){
-            document.querySelector(DOMstring.inputEmail).style.backgroundColor = goodColor;
-            message.style.color = goodColor;
-            message.innerHTML = "Email disponible."
-        }else{
-            document.querySelector(DOMstring.inputEmail).style.backgroundColor = badColor;
-            message.style.color = badColor;
-            message.innerHTML = "Email no disponible."
+        if(document.querySelector(DOMstring.inputEmail).value===''){
+            document.querySelector(DOMstring.inputEmail).style.backgroundColor = neutralColor;
+            message.innerHTML='';
         }
+        else{
+            if(flag){
+                document.querySelector(DOMstring.inputEmail).style.backgroundColor = goodColor;
+                message.style.color = goodColor;
+                message.innerHTML = "Email disponible."
+            }else{
+                document.querySelector(DOMstring.inputEmail).style.backgroundColor = badColor;
+                message.style.color = badColor;
+                message.innerHTML = "Email no disponible."
+            }
+        }
+        
     };
     const updateUser = (flag) => {
         let goodColor, badColor, message;
@@ -123,6 +156,17 @@ const UIController = (function (){
             message.innerHTML = "Usuario no disponible."
         }
     };
+    const updateName = (flag) => {
+        let message;
+        message = document.querySelector(DOMstring.confirmationMsgName);
+        if(flag){
+            message.innerHTML = ""
+        }else{
+            message.innerHTML = "Usar solo caracteres de letras"
+        }
+    };
+
+
 
     const correction = (option) => {
             
@@ -153,11 +197,18 @@ const UIController = (function (){
         updateUser: function(user){
             verifyUser(user);
         },
+        updateName: function(flag){
+            updateName(flag);
+        },
+        neutralEmail: function(flag){
+            updateMail(flag);
+        },
         writingCorrection: function(){
             correction();
         }
     }
-})();
+}
+)();
 
 const controller = (function (registration,UI){
     let DOMs, INPUTS;
@@ -179,8 +230,10 @@ const controller = (function (registration,UI){
         //Check if the email is avaliable and Update UI 
         if(flag)
             UI.updateEmail(UI.getInputs().email); 
-        else 
+        else{ 
             UI.writingCorrection('email');
+            UI.neutralEmail(flag);
+        }
     }
 
     const validateUser = function (){
@@ -194,12 +247,21 @@ const controller = (function (registration,UI){
             UI.writingCorrection('email');
     }
 
+    const validateName = function (){
+        let flag; 
+        //Check the name is written correctly 
+        flag = registration.checkName(UI.getInputs().name)
+        //Check if the email is avaliable and Update UI 
+        console.log(`La flag fue ${flag}`);
+        UI.updateName(flag);
+    }
+
     // LISTENERS
     document.querySelector(DOMs.inputPassword).addEventListener("keyup",validatePasswords);
     document.querySelector(DOMs.inputSecondPassword).addEventListener("keyup",validatePasswords);
     document.querySelector(DOMs.inputEmail).addEventListener("keyup",validateEmail);
     document.querySelector(DOMs.inputUser).addEventListener("keyup",validateUser);
-
+    document.querySelector(DOMs.inputName).addEventListener("keyup",validateName);
 
 
     

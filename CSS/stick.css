@@ -114,6 +114,10 @@ input {
     background: rgba(193,194,193,.5);
     border: none;
     padding: 15px;
+} 
+
+.switch{
+    display: none;
 }
 
 textarea {
@@ -147,3 +151,25 @@ textarea {
 .aux h3{
     padding-top: 35%;
 } 
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#0C9;
+	color:#FFF;
+    border-radius:50px;
+    border-style: none;
+	text-align:center;
+	box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.5);
+} 
+
+.float:active{
+    background-color:rgb(5, 116, 88);
+}
+
+.my-float{
+	margin-top:12px;
+}

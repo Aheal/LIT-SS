@@ -18,20 +18,22 @@
           <form name="data">
             <div class="sides">
               <div class="group1" class="left">
-                <input name="nombre" id="nombre" class="border-r"  onkeyup="AllowAlphabet(document.getElementById('nombre'))" type="text" onfocusout="checkform()" required>
+                <input name="nombre" id="nombre" class="border-r"   type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
+                <span id="confirmMessage-n" class="confirmMessage"></span>
                 <label>Nombre</label>
               </div>
               <div class="group1" class="right">
-                <input name="apellidos" id="apellidos"   onkeyup="AllowAlphabet(document.getElementById('apellidos'))" type="text" onfocusout="checkform()" required>
+                <input name="apellidos" id="apellidos"    type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
+                <span id="confirmMessage-ln" class="confirmMessage"></span>
                 <label>Apellidos</label>
               </div>
             </div>
             <div class="group2">
-              <input name="alias" id="alias"  type="text" onfocusout="checkform()" onchange="AllowAlias(document.getElementById('alias'))"  required>
+              <input name="alias" id="alias"  type="text" required>
               <span class="highlight"></span>
               <span class="bar"></span>
               <span id="confirmMessage-a" class="confirmMessage"></span>
@@ -39,9 +41,10 @@
             </div>
             <div class="sides">
               <div class="group1">
-                <input name="telefono"  id="telefono" class="border-r" onkeyup="AllowNumbers(document.getElementById('telefono'))"  type="text" onfocusout="checkform()" required>
+                <input name="telefono"  id="telefono" class="border-r" type="text" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
+                <span id="confirmMessage-p" class="confirmMessage"></span> 
                 <label>Tel&eacutefono</label>
               </div>
               <div class="group1" class="select" id="genero">
@@ -55,7 +58,7 @@
               </div>
             </div>
             <div class="group2">
-                <input name="correoE" id="correoE" onchange="AllowEmail(document.getElementById('correoE'))"  type="text" onfocusout="checkform()" required>
+                <input name="correoE" id="correoE" type="text"  required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <span id="confirmMessage-e" class="confirmMessage"></span>
@@ -63,13 +66,13 @@
               </div>
             <div class="sides">
               <div class="group1" class="left">
-                <input name="random1" type="password" class="border-r" onfocusout="checkform()" id="pass1" required>
+                <input name="random1" type="password" class="border-r"  id="pass1" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Contrase&ntilde;a</label>
               </div>
               <div class="group1" class="right">
-                <input name="random2"  type="password" onfocusout="checkform()" id="pass2" onkeyup="checkPass(); return false;" required>
+                <input name="random2"  type="password"  id="pass2"  required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <span id="confirmMessage" class="confirmMessage"></span>
@@ -78,12 +81,12 @@
             </div>
           </form>
         </div>
-          <button class="button b2" onclick="registrar()" disabled="disabled" id="finalizar" type="button">Finalizar</button>
+          <button class="button b2" disabled id="finalizar" type="button">Finalizar</button>
       </div> 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../JS/formController.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="../JS/registration.js" charset="utf-8" ></script>
   </body>
 </html>

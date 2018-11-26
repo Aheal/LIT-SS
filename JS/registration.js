@@ -49,6 +49,16 @@
     })();
 
     const UIController = (function (){ 
+        
+        let Validations ={
+            Name: false,
+            Surname: false,
+            Email: false,
+            Cellphone: false,
+            Gender: true, 
+            User: false,
+            Password: false
+        }
 
         let DOMstring = { 
             inputName: "#nombre",
@@ -67,21 +77,16 @@
             confirmationMsgPhone: "#confirmMessage-p",
             btnRegistration: "#finalizar"
         }  
-        function obtenerValores(){
-
-            let obj = {
-                nombre: document.getElementById("nombre").value,
-                apellidos: document.getElementById("apellidos").value,
-                correoE: document.getElementById("correoE").value, 
-                telefono: document.getElementById("telefono").value,
-                genero: $( "#genero option:selected" ).text(), 
-                alias: document.getElementById("alias").value,
-                pass: document.getElementById("pass2").value,
-            };     
-            return obj;
-        }
-        function WritetoDB(params) {
-            let obj = params;
+        function AJAXregistro() {
+            let obj ={
+                nombre: document.querySelector(DOMstring.inputName).value,
+                apellidos: document.querySelector(DOMstring.inputSurname).value,
+                correoE: document.querySelector(DOMstring.inputEmail).value, 
+                telefono: document.querySelector(DOMstring.inputCellphone).value,
+                genero: document.querySelector(DOMstring.gender).value, 
+                alias: document.querySelector(DOMstring.inputUser).value,
+                pass: document.querySelector(DOMstring.inputPassword).value,
+            };
             $.ajax({
                 type: "POST",
                 url: "../BS/registration.php",
@@ -143,10 +148,12 @@
                 document.querySelector(DOMstring.inputSecondPassword).style.backgroundColor = goodColor;
                 message.style.color = goodColor;
                 message.innerHTML = "Coinciden!"
+                Validations.Password = true;
             }else{
                 document.querySelector(DOMstring.inputSecondPassword).style.backgroundColor = badColor;
                 message.style.color = badColor;
                 message.innerHTML = "No Coinciden!"
+                Validations.Password = false;
             }
         }; 
         const updateMail = (flag) => {
@@ -156,18 +163,22 @@
             neutralColor = "#FFFFFF";
             message = document.querySelector(DOMstring.confirmationMsgEmail);
             if(document.querySelector(DOMstring.inputEmail).value===''){
+                message.style.color = "#000000";
                 document.querySelector(DOMstring.inputEmail).style.backgroundColor = neutralColor;
                 message.innerHTML='Llenar el campo';
+                Validations.Email = false;
             }
             else{
                 if(flag){
                     document.querySelector(DOMstring.inputEmail).style.backgroundColor = goodColor;
                     message.style.color = goodColor;
                     message.innerHTML = "Email disponible."
+                    Validations.Email = true;
                 }else{
                     document.querySelector(DOMstring.inputEmail).style.backgroundColor = badColor;
                     message.style.color = badColor;
-                    message.innerHTML = "Email no disponible."
+                    message.innerHTML = "Email no valido."
+                    Validations.Email = false;
                 }
             }
             
@@ -182,6 +193,7 @@
             
             if(document.querySelector(DOMstring.inputUser).value===''){
                 document.querySelector(DOMstring.inputUser).style.backgroundColor = neutralColor;
+                Validations.User = false;
                 message.style.color = "#000000";
                 message.innerHTML='Llenar el campo';
             }
@@ -189,10 +201,12 @@
             else{
             if(flag){
                 document.querySelector(DOMstring.inputUser).style.backgroundColor = goodColor;
+                Validations.User = true;
                 message.style.color = goodColor;
                 message.innerHTML = "Usuario disponible.";
             }else{
                 document.querySelector(DOMstring.inputUser).style.backgroundColor = badColor;
+                Validations.inputUser = false;
                 message.style.color = badColor;
                 message.innerHTML = "Usuario no disponible.";
             }
@@ -203,23 +217,34 @@
             message = document.querySelector(DOMstring.confirmationMsgName);
             if(document.querySelector(DOMstring.inputName).value===''){
                 message.innerHTML='Llenar el campo';
+                Validations.Name = false;
             }
             else{
                 if(flag){
                     message.innerHTML = "";
+                    Validations.Name = true;
                 }else{
                     message.innerHTML = "Usar solo letras";
+                    Validations.Name = false;
             }
         }
         };
         const updateLastName = (flag) => {
             let message;
             message = document.querySelector(DOMstring.confirmationMsgLastName);
-            if(flag){
-                message.innerHTML = "";
-            }else{
-                message.innerHTML = "Usar solo letras";
+            if(document.querySelector(DOMstring.inputSurname).value===''){
+                message.innerHTML='Llenar el campo';
+                Validations.Surname = false;
             }
+            else{
+                if(flag){
+                    message.innerHTML = "";
+                    Validations.Surname = true;
+                }else{
+                    message.innerHTML = "Usar solo letras";
+                    Validations.Surname = false;
+            }
+        }
         };        
         const updatePhone = (flag) => {
             let goodColor, badColor, message;
@@ -231,14 +256,28 @@
                 document.querySelector(DOMstring.inputCellphone).style.backgroundColor = neutralColor;
                 message.style.color = "#000000";
                 message.innerHTML='Llenar el campo';
+                Validations.Cellphone = false;
             }
             else{
                 if(flag){
                     message.innerHTML = "";
+                    Validations.Cellphone = true;
                 }else{
                     message.innerHTML = "Usar solo números";
+                    Validations.Cellphone = false;
             }
         }
+        };
+
+        const allValidationsTrue = () =>{
+            for (const key in Validations) {
+                if (Validations.hasOwnProperty(key)) {
+                     element = Validations[key];   
+                     if(element==false)
+                        return false; 
+            }
+        }
+        return true;
         };
 
 
@@ -271,9 +310,12 @@
                     pass2: document.querySelector(DOMstring.inputSecondPassword).value
                 }
             },
+            getValidations: function(){
+                return allValidationsTrue();
+            }, 
             getDOMs: function (){
                 return DOMstring;
-            }, 
+            },
             updatePassword: function (flag){
                 updatePsswd(flag);
             }, 
@@ -299,8 +341,8 @@
                 correction();
             }
         }
-    }
-    )();
+    
+    })();
 
     const controller = (function (registration,UI){
         let DOMs, INPUTS;
@@ -349,7 +391,6 @@
         const validateLastName = function (){
             let flag; 
             //Check the name is written correctly 
-            console.log();
             flag = registration.checkName(UI.getInputs().surname)
             //Check if the email is avaliable and Update UI 
             UI.updateLastName(flag);
@@ -359,8 +400,12 @@
             //Check the name is written correctly 
             flag = registration.checkPhone(UI.getInputs().cellphone)
             //Check if the email is avaliable and Update UI 
-            console.log(`La flag fue ${flag}`);
             UI.updatePhone(flag);
+        }
+        const unblockRegistration = function (){
+            let flag = UI.getValidations();
+            console.log(`las validaciones son ${flag}`);
+            flag ? document.querySelector(DOMs.btnRegistration).disabled = false : document.querySelector(DOMs.btnRegistration).disabled = true;
         }
 
 
@@ -372,8 +417,8 @@
         document.querySelector(DOMs.inputUser).addEventListener("keyup",validateUser);
         document.querySelector(DOMs.inputName).addEventListener("keyup",validateName);
         document.querySelector(DOMs.inputCellphone).addEventListener("keyup",validatePhone);
-
-
+        document.querySelector(DOMs.inputSurname).addEventListener("keyup",validateLastName);
+        document.addEventListener("keyup",unblockRegistration);
         
 
     })(registrationController,UIController);

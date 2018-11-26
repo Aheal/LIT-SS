@@ -35,7 +35,7 @@ function obtenerValores(){
         apellidos: document.getElementById("apellidos").value,
         correoE: document.getElementById("correoE").value, 
         telefono: document.getElementById("telefono").value,
-        genero: $( "#genero option:selected" ).text(), 
+        genero: $("#genero option:selected" ).text(), 
         alias: document.getElementById("alias").value
     };     
     return obj;

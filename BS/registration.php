@@ -13,7 +13,7 @@ $pass = $decoded_json->pass;
 $codigo = hash("sha256",$alias.$correoE); 
 $hashAlias = hash("sha256",$alias) ;
 $hashPass = hash("sha256",$pass) ;
-$verificado = "0";
+$verificado = "1";
 
 $sql = $conn->prepare("INSERT INTO Usuarios (Nombre,Apellidos,Correo_e,Telefono,Genero,Alias,Codigo,Verificado) VALUES (?,?,?,?,?,?,?,?)"); 
 $sql -> bind_param("ssssssss",$nombre,$apellidos,$correoE,$telefono,$genero,$alias,$codigo,$verificado);

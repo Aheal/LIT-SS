@@ -83,7 +83,7 @@
                 apellidos: document.querySelector(DOMstring.inputSurname).value,
                 correoE: document.querySelector(DOMstring.inputEmail).value, 
                 telefono: document.querySelector(DOMstring.inputCellphone).value,
-                genero: document.querySelector(DOMstring.gender).value, 
+                genero: $("#genero option:selected" ).text(), 
                 alias: document.querySelector(DOMstring.inputUser).value,
                 pass: document.querySelector(DOMstring.inputPassword).value,
             };
@@ -94,9 +94,10 @@
                     json: JSON.stringify(obj)
                 },
                 success: function (response) {
-                    //service.php response 
-                    if(response === '1')
-                        alert("Registro exitoso!");
+                    
+ 
+                    response === "0" ? reset() : null;
+
                 }
             });
         }
@@ -206,7 +207,7 @@
                 message.innerHTML = "Usuario disponible.";
             }else{
                 document.querySelector(DOMstring.inputUser).style.backgroundColor = badColor;
-                Validations.inputUser = false;
+                Validations.User = false;
                 message.style.color = badColor;
                 message.innerHTML = "Usuario no disponible.";
             }
@@ -247,9 +248,7 @@
         }
         };        
         const updatePhone = (flag) => {
-            let goodColor, badColor, message;
-            goodColor = "#a5d6a7";
-            badColor = "#ef9a9a";
+            let message;
             neutralColor = "#FFFFFF";
             message = document.querySelector(DOMstring.confirmationMsgPhone);
             if(document.querySelector(DOMstring.inputCellphone).value===''){
@@ -272,30 +271,34 @@
         const allValidationsTrue = () =>{
             for (const key in Validations) {
                 if (Validations.hasOwnProperty(key)) {
-                     element = Validations[key];   
-                     if(element==false)
+                    element = Validations[key];   
+                    if(element==false)
                         return false; 
+                }
             }
-        }
-        return true;
+            return true;
         };
-
 
         const reset = () => {
             document.querySelector(DOMstring.inputName).value="";
             document.querySelector(DOMstring.inputSurname).value="";
             document.querySelector(DOMstring.inputCellphone).value="";
             document.querySelector(DOMstring.inputGender).value="M";
+            document.querySelector(DOMstring.inputEmail).value="";
             document.querySelector(DOMstring.inputUser).value="";
             document.querySelector(DOMstring.inputPassword).value="";
-            document.querySelector(DOMstring.inputSecondPassword).value="";        
+            document.querySelector(DOMstring.inputSecondPassword).value=""; 
+            document.querySelector(DOMstring.confirmationMsgName).innerHTML="";  
+            document.querySelector(DOMstring.confirmationMsgLastName).innerHTML="";  
+            document.querySelector(DOMstring.confirmationMsgPhone).innerHTML="";
+            document.querySelector(DOMstring.confirmationMsgEmail).innerHTML="";
+            document.querySelector(DOMstring.confirmationMsgUser).innerHTML=""; 
+            document.querySelector(DOMstring.confirmationMsgPsswd).innerHTML=""; 
+            document.querySelector(DOMstring.inputUser).style.backgroundColor = neutralColor;
+            document.querySelector(DOMstring.inputEmail).style.backgroundColor = neutralColor;
+            document.querySelector(DOMstring.inputSecondPassword).style.backgroundColor = neutralColor;
+            document.querySelector(DOMstring.btnRegistration).disabled = true;
         }
-
-
-
-        const correction = (option) => {
-                
-        };
 
         return {
             getInputs : function(){
@@ -333,12 +336,15 @@
             },                
             updatePhone: function(flag){
                 updatePhone(flag);
+            },
+            registration: function(){
+                AJAXregistro();
             },        
             neutralEmail: function(flag){
                 updateMail(flag);
-            },
-            writingCorrection: function(){
-                correction();
+            }, 
+            reset: function(){
+                reset();
             }
         }
     
@@ -365,7 +371,6 @@
             if(flag)
                 UI.updateEmail(UI.getInputs().email); 
             else{ 
-                UI.writingCorrection('email');
                 UI.neutralEmail(flag);
             }
         }
@@ -377,8 +382,6 @@
             //Check if the email is avaliable and Update UI 
             if(flag)
                 UI.updateUser(UI.getInputs().user); 
-            else 
-                UI.writingCorrection('email');
         }
 
         const validateName = function (){
@@ -404,11 +407,8 @@
         }
         const unblockRegistration = function (){
             let flag = UI.getValidations();
-            console.log(`las validaciones son ${flag}`);
             flag ? document.querySelector(DOMs.btnRegistration).disabled = false : document.querySelector(DOMs.btnRegistration).disabled = true;
         }
-
-
 
         // LISTENERS
         document.querySelector(DOMs.inputPassword).addEventListener("keyup",validatePasswords);
@@ -418,7 +418,7 @@
         document.querySelector(DOMs.inputName).addEventListener("keyup",validateName);
         document.querySelector(DOMs.inputCellphone).addEventListener("keyup",validatePhone);
         document.querySelector(DOMs.inputSurname).addEventListener("keyup",validateLastName);
+        document.querySelector(DOMs.btnRegistration).addEventListener("click",UI.registration);
         document.addEventListener("keyup",unblockRegistration);
-        
-
+    
     })(registrationController,UIController);

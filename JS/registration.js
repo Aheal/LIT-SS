@@ -75,6 +75,7 @@
             confirmationMsgName: "#confirmMessage-n",
             confirmationMsgLastName: "#confirmMessage-ln",
             confirmationMsgPhone: "#confirmMessage-p",
+            msgForm: "#message-f",
             btnRegistration: "#finalizar"
         }  
         function AJAXregistro() {
@@ -87,6 +88,7 @@
                 alias: document.querySelector(DOMstring.inputUser).value,
                 pass: document.querySelector(DOMstring.inputPassword).value,
             };
+            console.log("Intento de hacer registration");
             $.ajax({
                 type: "POST",
                 url: "../BS/registration.php",
@@ -94,14 +96,34 @@
                     json: JSON.stringify(obj)
                 },
                 success: function (response) {
-                    
- 
+                    console.log(response);
+                    updateForm(response);
                     response === "0" ? reset() : null;
 
                 }
             });
         }
 
+        const updateForm = (flag) => { 
+            console.log("llegue al update form");
+            switch (flag) {
+                case "0":
+                    message = document.querySelector(DOMstring.msgForm); 
+                    message.style.background = "#a5d6a7"; 
+                    message.style.color = "#fff";
+                    message.innerHTML = "Registro Exitoso";
+                    break;
+                case "1":
+                    message = document.querySelector(DOMstring.msgForm); 
+                    message.style.background = "#ef9a9a"; 
+                    message.style.color = "#fff";
+                    message.innerHTML = "Registro Fallido";                   
+                    break;                    
+                default:
+                    break;
+                }
+        };
+            
 
         function verifyEmail(email){
             let obj; 

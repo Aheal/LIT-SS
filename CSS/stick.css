@@ -118,6 +118,14 @@ input {
 
 .switch{
     display: none;
+} 
+
+select.i-change{
+    background: gray;
+    color: white;
+    border-style: none;
+    width: auto;
+    min-width: 150px;
 }
 
 textarea {

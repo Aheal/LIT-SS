@@ -15,21 +15,59 @@ $logro3 = $decoded_json->logro3;
 $userID = 0;
 
 
-$sql = $conn -> prepare("SELECT UsuarioID from Usuarios where Alias = ?");
+$sql = $conn -> prepare("SELECT UsuarioID FROM Usuarios WHERE Alias = ?");
 $sql -> bind_param("s",$user);
 
 if($sql -> execute()){
-    // echo '1';
     $sql -> bind_result($userID); 
     $sql -> fetch();
-    $sql->close();
-    $sql = $conn->prepare("INSERT INTO perfil_participantes (UsuarioID,Lema,Bio) VALUES (?,?,?)");
-    $sql -> bind_param("sss",$userID,$lema,$bio); 
-    if($sql -> execute())
-        echo "0";
-    else
-        echo "1"; 
-    $sql -> close();
+    $sql->close(); 
+    $sql = $conn->prepare("SELECT UsuarioID FROM perfil_participantes WHERE UsuarioID = ?"); 
+    $sql -> bind_param("s",$userID); 
+    if ($sql -> execute()) {
+        $sql -> bind_result($flag); 
+        $sql -> fetch();
+        $sql->close();  
+        if($flag == "")
+        {
+            $sql = $conn->prepare("INSERT INTO perfil_participantes (UsuarioID,Lema,Bio,Logro1,Logro2,Logro3) VALUES (?,?,?,?,?,?)");
+            $sql -> bind_param("ssssss",$userID,$lema,$bio,$logro1,$logro2,$logro3); 
+            if($sql -> execute()){
+                $sql -> close(); 
+                $sql = $conn->prepare("UPDATE Usuarios SET Nombre = ? WHERE UsuarioID = ?");
+                $sql -> bind_param("ss",$nombre,$userID);  
+                if($sql -> execute()) 
+                    echo "0";
+                else 
+                    echo "1";
+                $sql -> close(); 
+            }
+            else {
+                echo "1"; 
+                $sql -> close();
+            }
+        }else{
+            $sql = $conn->prepare("UPDATE perfil_participantes SET Lema = ?, Bio = ? , Logro1 = ?, Logro2 = ?, Logro3 = ? WHERE UsuarioID = ?");
+            $sql -> bind_param("ssssss",$lema,$bio,$logro1,$logro2,$logro3,$userID); 
+            if($sql -> execute()){
+                $sql -> close(); 
+                $sql = $conn->prepare("UPDATE Usuarios SET Nombre = ? WHERE UsuarioID = ?");
+                $sql -> bind_param("ss",$nombre,$userID);  
+                if($sql -> execute()) 
+                    echo "0";
+                else 
+                    echo "1";
+                $sql -> close(); 
+            }
+            else {
+                echo "1"; 
+                $sql -> close();
+            }
+        }
+    } else {
+        $sql->close(); 
+        echo "1";
+    }
 } else {
     echo "1";
 }

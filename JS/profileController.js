@@ -3,7 +3,6 @@ const profileController =  (function (){
     const getSearch = () => {
         search = window.location.search;
         search = search.split('?');
-        console.log(search);   
         return search[1];
     }; 
 
@@ -105,14 +104,15 @@ const UIController = (function (){
         inputAchievement2: "#achievement2",
         inputAchievement3: "#achievement3",
         msgForm: "#message-f", 
-        floatButton: ".float", 
+        fButton1: "#fButton1", 
+        fButton2: "#fButton2", 
         infoSections: ".p-change", 
         inputSections: ".i-change"
     } 
 
-    const AJAXGetInfo = () =>{
+    const AJAXGetInfo = (user) =>{
         let obj ={
-            
+            user: user
         };
         $.ajax({
             type: "POST",
@@ -174,37 +174,6 @@ const UIController = (function (){
 
     };
 
-    // const updateName = (flag) => {
-    //     let message;
-    //     message = document.querySelector(DOMstring.confirmationMsgName);
-    //     if(document.querySelector(DOMstring.inputName).value===''){
-    //         message.innerHTML='Llenar el campo';
-    //         Validations.Name = false;
-    //         console.log("invalid");
-    //     }
-    //     else{
-    //         if(flag){
-    //             message.innerHTML = "";
-    //             Validations.Name = true;
-    //             console.log("valid");
-    //         }else{
-    //             message.innerHTML = "Usar solo letras";
-    //             Validations.Name = false;
-    //             console.log("invalid");
-    //         }
-    //     }
-    // };
-    
-    // const allValidationsTrue = () =>{
-    //     for (const key in Validations) {
-    //         if (Validations.hasOwnProperty(key)) {
-    //              element = Validations[key];   
-    //              if(element==false)
-    //                 return false; 
-    //     }
-    // }
-    //     return true;
-    // }; 
 
     const toggle = () => {
         let info, inputs;
@@ -215,7 +184,10 @@ const UIController = (function (){
         });
         inputs.forEach(element => {
             element.classList.toggle("switch");                
-        });
+        }); 
+        document.querySelector(DOMstring.fButton1).classList.toggle("switch");
+        document.querySelector(DOMstring.fButton2).classList.toggle("switch");
+
     };
 
     const reset = () => {
@@ -254,9 +226,12 @@ const UIController = (function (){
         updateName: function(flag){
             updateName(flag);
         }, 
-        edit_save: function(user){
-            AJAXSetInfo(user)
+        save: function(user){
+            AJAXSetInfo(user);
         }, 
+        edit: function(){
+            toggle();
+        },
         fillDropdown: function(type,obj){
             fillDropdowns(type,obj);
         }        
@@ -287,12 +262,19 @@ const controller = (function (profile,UI){
 
     } 
 
-    const save = () => {
-        UI.edit_save(profile.getUser());
+    const save = () => { 
+        UI.save(profile.getUser());
+        console.log("save");
+    };
+    const edit = () => { 
+        UI.edit();
+        console.log("edit");
     };
 
     init();
     //LISTENERS
     // document.querySelector(DOMs.inputName).addEventListener("keyup",validateName); 
-    document.querySelector(DOMs.floatButton).addEventListener("click", save);
+    document.querySelector(DOMs.fButton1).addEventListener("click", save);
+    document.querySelector(DOMs.fButton2).addEventListener("click", edit);
+
 })(profileController,UIController); 

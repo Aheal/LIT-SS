@@ -42,6 +42,10 @@ CREATE TABLE IF NOT EXISTS Perfil_Participantes
 (UsuarioID int NOT NULL,
 Lema varchar(255),
 Bio varchar(255),
+Logro1 varchar(255),
+Logro2 varchar(255),
+Logro3 varchar(255),
+
 
 INDEX (UsuarioID),
 FOREIGN KEY (UsuarioID)

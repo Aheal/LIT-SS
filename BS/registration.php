@@ -22,7 +22,7 @@ $sql -> bind_param("ssssssss",$nombre,$apellidos,$correoE,$telefono,$genero,$ali
 if($sql -> execute()){
     // echo '1';
     $sql->close();
-    $sql = $conn->prepare("INSERT INTO UWU (Alias,Pss) VALUES (?,?)");
+    $sql = $conn->prepare("INSERT INTO uwu (Alias,Pss) VALUES (?,?)");
     $sql -> bind_param("ss",$hashAlias,$hashPass); 
     if($sql -> execute())
         echo "0";

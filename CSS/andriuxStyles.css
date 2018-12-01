@@ -32,27 +32,35 @@ body{
   opacity: 0.6;
   cursor: not-allowed;
 }
+#message-f{
+  line-height: 14px;
+  height:75px;
+  margin: 0px;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 10px
+}
 .button.b1{
     position: absolute;
     left: 506px;
-    top: 443px;
+    top: 503px;
 }
 .button.b2{
     position: absolute;
     left: 408px;
-    top: 639px;
+    top: 699px;
 }
 .parent{
   position: relative;
   width: 550px;
-  height: 690px;
+  height: 750px;
   padding:5px 50px;
   background:#D59E30;
   margin:0 auto;
 }
 .container{
   width: 550px;
-  height: 520px;
+  height: 580px;
   padding: 36px 50px 50px;
   background:#ffffff;
 }

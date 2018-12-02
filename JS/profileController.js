@@ -103,6 +103,15 @@ const UIController = (function (){
         inputAchievement1: "#achievement1",
         inputAchievement2: "#achievement2",
         inputAchievement3: "#achievement3",
+        textName: "#_name",
+        textSchool: "#_school",
+        textMotto: "#_motto",
+        textContest: "#_contest",
+        textBenchmarks: "#_benchmarks",
+        textBio: "#_bio",
+        textAchievement1: "#_achievement1",
+        textAchievement2: "#_achievement2",
+        textAchievement3: "#_achievement3",
         msgForm: "#message-f", 
         fButton1: "#fButton1", 
         fButton2: "#fButton2", 
@@ -120,11 +129,11 @@ const UIController = (function (){
             data: {
                 json: JSON.stringify(obj)
             },
-            success: function (response) {
-                
+            success: function (response) { 
+                setInfo(response);
             }
         });
-    };
+    }; 
 
     const AJAXSetInfo = (user) =>{
 
@@ -175,7 +184,7 @@ const UIController = (function (){
     };
 
 
-    const toggle = () => {
+    const toggle = () => { 
         let info, inputs;
         info = document.querySelectorAll(DOMstring.infoSections);
         inputs = document.querySelectorAll(DOMstring.inputSections); 
@@ -190,15 +199,34 @@ const UIController = (function (){
 
     };
 
-    const reset = () => {
-        document.querySelector(DOMstring.inputName).value="";
-        document.querySelector(DOMstring.inputSchool).value="";
-        document.querySelector(DOMstring.inputMotto).value="";
-        document.querySelector(DOMstring.inputContest).value="";
-        document.querySelector(DOMstring.inputBio).value="";
-        document.querySelector(DOMstring.inputAchievement1).value="";
-        document.querySelector(DOMstring.inputAchievement2).value="";
-        document.querySelector(DOMstring.inputAchievement3).value="";
+    const setInfo = (obj) => { 
+
+        obj = JSON.parse(obj);
+
+        document.querySelector(DOMstring.inputName).value = obj.name;
+        document.querySelector(DOMstring.inputMotto).value = obj.motta;
+        document.querySelector(DOMstring.inputBio).value = obj.bio;
+        document.querySelector(DOMstring.inputAchievement1).value = obj.achievement1;
+        document.querySelector(DOMstring.inputAchievement2).value = obj.achievement2;
+        document.querySelector(DOMstring.inputAchievement3).value = obj.achievement3;
+        document.querySelector(DOMstring.textName).innerHTML = obj.name;
+        document.querySelector(DOMstring.textMotto).innerHTML = obj.motta;
+        document.querySelector(DOMstring.textBio).innerHTML = obj.bio;
+        document.querySelector(DOMstring.textAchievement1).innerHTML = obj.achievement1;
+        document.querySelector(DOMstring.textAchievement2).innerHTML = obj.achievement2;
+        document.querySelector(DOMstring.textAchievement3).innerHTML = obj.achievement3;
+        
+    }
+
+    const setSave = () => { 
+
+        document.querySelector(DOMstring.textName).innerHTML =  document.querySelector(DOMstring.inputName).value;
+        document.querySelector(DOMstring.textMotto).innerHTML = document.querySelector(DOMstring.inputMotto).value;
+        document.querySelector(DOMstring.textBio).innerHTML = document.querySelector(DOMstring.inputBio).value;
+        document.querySelector(DOMstring.textAchievement1).innerHTML = document.querySelector(DOMstring.inputAchievement1).value;
+        document.querySelector(DOMstring.textAchievement2).innerHTML = document.querySelector(DOMstring.inputAchievement2).value;
+        document.querySelector(DOMstring.textAchievement3).innerHTML = document.querySelector(DOMstring.inputAchievement3).value;
+
     }
 
     return {
@@ -229,26 +257,25 @@ const UIController = (function (){
         save: function(user){
             AJAXSetInfo(user);
         }, 
-        edit: function(){
+        setSave: function(){
+            setSave();
+        },
+        toggle: function(){
             toggle();
         },
         fillDropdown: function(type,obj){
             fillDropdowns(type,obj);
+        }, 
+        setInfo: function(user){
+            AJAXGetInfo(user);
         }        
     }
 })();
 
 const controller = (function (profile,UI){ 
-    let DOMs, INPUTS;
+    let DOMs, INPUTS, user;
     DOMs = UI.getDOMs();  
-
-    // const validateName = function (){
-    //     let flag; 
-    //     //Check the name is written correctly 
-    //     console.log("1");
-    //     flag = profile.checkAlphabet(UI.getInputs().name)
-    //     UI.updateName(flag);
-    // } 
+    user = profile.getUser();
 
     const init = () => {
         let schools, contests; 
@@ -258,17 +285,18 @@ const controller = (function (profile,UI){
         contests = profile.getContest();
         //Update the ui 
         UI.fillDropdown("school",schools);
-        UI.fillDropdown("contest",contests);
+        UI.fillDropdown("contest",contests); 
+        UI.setInfo(user);
 
     } 
 
     const save = () => { 
-        UI.save(profile.getUser());
-        console.log("save");
+        UI.save(user); 
+        UI.setSave();
     };
+
     const edit = () => { 
-        UI.edit();
-        console.log("edit");
+        UI.toggle(user);
     };
 
     init();

@@ -35,6 +35,8 @@ const UIController = (function (){
     };
 
     const updateForm = (type,flag) => { 
+        let alias; 
+        alias = document.querySelector(DOMstrings.inputAlias).value;
         switch (type) {
             case "blank":
                 message = document.querySelector(DOMstrings.msgForm); 
@@ -49,7 +51,8 @@ const UIController = (function (){
                         message = document.querySelector(DOMstrings.msgForm); 
                         message.style.background = "#a5d6a7"; 
                         message.style.color = "#fff";
-                        message.innerHTML = "Listo Campeon!";
+                        message.innerHTML = "Listo Campeon!"; 
+                        window.location.href = `http://localhost/ServicioSocial/LIT-SS/Templates/edicionPerfil.html?${alias}`;
                         break;
                     case "1":
                         message = document.querySelector(DOMstrings.msgForm); 
@@ -108,11 +111,12 @@ const controller = (function (login,UI){
         INPUTS = UI.getInputs(); 
 
         flag = login.isNotEmpty(INPUTS.alias); 
-        flag = login.isNotEmpty(INPUTS.pass); 
+        flag1 = login.isNotEmpty(INPUTS.pass); 
         console.log(`flag : ${flag}`);
+        console.log(`flag : ${flag1}`);
         console.log(`alias : ${INPUTS.alias}`);
         console.log(`pass : ${INPUTS.pass}`);
-        if(flag)
+        if(flag && flag1)
             UI.logIn(INPUTS.alias,INPUTS.pass); 
         else 
             UI.notBlankSpaces(flag);

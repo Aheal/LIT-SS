@@ -35,6 +35,8 @@ const UIController = (function (){
     };
 
     const updateForm = (type,flag) => { 
+        let alias; 
+        alias = document.querySelector(DOMstrings.inputAlias).value;
         switch (type) {
             case "blank":
                 message = document.querySelector(DOMstrings.msgForm); 
@@ -49,7 +51,8 @@ const UIController = (function (){
                         message = document.querySelector(DOMstrings.msgForm); 
                         message.style.background = "#a5d6a7"; 
                         message.style.color = "#fff";
-                        message.innerHTML = "Listo Campeon!";
+                        message.innerHTML = "Listo Campeon!"; 
+                        window.location.href = `http://localhost/ServicioSocial/LIT-SS/Templates/edicionPerfil.html?${alias}`;
                         break;
                     case "1":
                         message = document.querySelector(DOMstrings.msgForm); 

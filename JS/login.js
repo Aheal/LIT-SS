@@ -108,11 +108,12 @@ const controller = (function (login,UI){
         INPUTS = UI.getInputs(); 
 
         flag = login.isNotEmpty(INPUTS.alias); 
-        flag = login.isNotEmpty(INPUTS.pass); 
+        flag1 = login.isNotEmpty(INPUTS.pass); 
         console.log(`flag : ${flag}`);
+        console.log(`flag : ${flag1}`);
         console.log(`alias : ${INPUTS.alias}`);
         console.log(`pass : ${INPUTS.pass}`);
-        if(flag)
+        if(flag && flag1)
             UI.logIn(INPUTS.alias,INPUTS.pass); 
         else 
             UI.notBlankSpaces(flag);

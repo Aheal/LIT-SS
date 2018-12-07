@@ -8,8 +8,19 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../CSS/reset.css" /> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/stick.css" /> 
-</head>
+    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/stick.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../Testing/testeobarra.css" /> 
+ 
+</head> 
+<nav class="navbar sticky-top navbar-light bg-dark justify-content-between">
+    <a class="navbar-brand" href=""><img src="../IMG/logo.png" alt="" style="height:60px;"></a>
+    <form class="form-inline" autocomplete="off">
+        <div class="autocomplete" style="width:300px; margin-right: 15px;">
+          <input id="myInput" type="text" name="myCountry" placeholder="buscar usuario">
+        </div> 
+        <button id="_search"class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>   
+    </form>
+  </nav>
 <body>
     <div class="container-fluid perfil-container">
         <div class="row">
@@ -21,7 +32,7 @@
                     </div>
                     <div class="info-card-aux usr">
                         <div class="info-card-container">
-                            <h3>Rogelio Amaro</h3>
+                            <h3 id="_name">Rogelio Amaro</h3>
                         </div>
                     </div>
 
@@ -35,7 +46,7 @@
                     </div>
                     <div class="info-card-container" >
                         <h3>Bio:</h3>
-                        <p>
+                        <p id="_bio">
                             Me encanta los deportes, me considero una persona
                             autodidacta. Me gustan muchas la matematicas y 
                             las bellas artes. Estoy listo para ganar!
@@ -43,7 +54,7 @@
                     </div>
                     <div class="info-card-container">
                         <h3>Lema</h3>
-                        <p>
+                        <p id="_motto">
                             "The more you know, the less you ignore"
                         </p>
                     </div>
@@ -54,7 +65,7 @@
                     <div class="info-card-aux">
                         <div class="info-card-container">
                             <h3>Concurso</h3>
-                            <p>Estare participando en La Cueva del León</p>
+                            <p id="_contest">Estare participando en La Cueva del León</p>
                         </div>
                     </div>
                 </div>
@@ -72,20 +83,20 @@
             <div class="col-lg-4 cardto-2 e">
                 <div class="info-card-aux">
                     <div class="info-card-container">
-                        <h3>Primer lugar en Reto emprendedor 2017</h3>
+                        <h3 id="_achievement1">Primer lugar en Reto emprendedor 2017</h3>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 cardto-2 f">
                 <div class="info-card-aux">
                     <div class="info-card-container">
-                        <h3>Primer lugar en Reto emprendedor 2017</h3>
+                        <h3 id="_achievement2">Primer lugar en Reto emprendedor 2017</h3>
                     </div>
                 </div>            </div>
             <div class="col-lg-4 cardto-2 h">
                 <div class="info-card-aux">
                     <div class="info-card-container">
-                        <h3>Primer lugar en Reto emprendedor 2017</h3>
+                        <h3 id="_achievement3">Primer lugar en Reto emprendedor 2017</h3>
                     </div>
                 </div>            
             </div>
@@ -96,5 +107,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../JS/showPerfil.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="../Testing/JS/barra.js" charset="utf-8" ></script>
 </body>
 </html>

@@ -23,7 +23,7 @@ const UIController = (function (){
     
         $.ajax({    
             type: "POST",
-            url: "barraphp.php",
+            url: "../Testing/barraphp.php",
             data: {
                 json: JSON.stringify(obj)
             },
@@ -228,6 +228,21 @@ const controller = (function (login,UI){
     autocomplete(document.getElementById("myInput"), USERS);
 
 
-})(loginController,UIController);
+})(loginController,UIController); 
+
+const getSearch = () => {
+    user = document.querySelector("#myInput").value; 
+    return user;
+}; 
+
+const goto = (alias) => {
+    window.location.href = `http://localhost/ServicioSocial/LIT-SS/Templates/perfil.html?${alias}`;
+} 
+
+const search = () =>{
+    goto(getSearch());
+}
+
+document.querySelector("#_search").addEventListener("click", search);
 
 

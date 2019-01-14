@@ -1,32 +1,29 @@
-/*Estilo por: Aheal*/ 
-html, body {height: 100%;}
-
 /*
 Barra
 CSS
 */
 
 * { box-sizing: border-box; }
-body {
-  font: 16px Arial;
-}
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block; 
 }
-input {
+nav input {
   border: 1px solid transparent;
   background-color: #f1f1f1;
   padding: 10px;
-  font-size: 16px;
+  font-size: 16px; 
+  color: #000;
 }
-input[type=text] {
+nav input[type=text] {
   background-color: #f1f1f1;
   width: 300px;
   border-radius: 15px;
+  color: #000;
+
 }
-input[type=submit] {
+nav input[type=submit] {
   background-color: DodgerBlue;
   color: black;
 }

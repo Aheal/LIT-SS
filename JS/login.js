@@ -52,7 +52,7 @@ const UIController = (function (){
                         message.style.background = "#a5d6a7"; 
                         message.style.color = "#fff";
                         message.innerHTML = "Listo Campeon!"; 
-                        window.location.href = `http://localhost/ServicioSocial/LIT-SS/Templates/edicionPerfil.html?${alias}`;
+                        window.location.href = `http://localhost/LIT-SS/Templates/edicionPerfil.html?${alias}`;
                         break;
                     case "1":
                         message = document.querySelector(DOMstrings.msgForm); 

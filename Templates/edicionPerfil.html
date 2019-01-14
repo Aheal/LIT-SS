@@ -7,20 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../CSS/reset.css" /> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/stick.css" /> 
+    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/stick.css" />    
+    <link rel="stylesheet" type="text/css" media="screen" href="../Testing/testeobarra.css" /> 
+ 
 </head>
-<body>
+<body class="perfil-body">
+    <nav class="navbar sticky-top navbar-light justify-content-between">
+        <a class="navbar-brand" href=""><img src="../IMG/logo.png" alt="" style="height:60px;"></a>
+        <form class="form-inline" autocomplete="off">
+            <div class="autocomplete" style="width:300px; margin-right: 15px;">
+                <input id="myInput" type="text" name="myCountry" placeholder="buscar usuario">
+            </div> 
+            <button id="_search"class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>   
+        </form>
+    </nav>
     <div class="container-fluid editPerfil-container">
         <div class="row">
             <div class="col-lg-4 cardto a">
                 <div class="img-aux">
                     <img class="perfil-img"src="../IMG/idkmen.jpg" alt=""> 
-                    <div class="team-wrap">
+                    <!-- <div class="team-wrap">
                         <img src="../IMG/kisspng-league-of-legends-team-we-electronic-sports-logo-v-5b66ae16d3ab93.034768711533455894867.png" alt="" class="team-img">
-                    </div>
+                    </div> -->
                     <div class="info-card-aux usr">
                         <div class="info-card-container">
-                            <h3 id="_name" class="p-change switch">Rogelio Amaro </h3>
+                            <h3 id="_name" class="p-change switch"></h3>
                             <input class="i-change" name="name" type="text" id="name" value="Rogelio Amaro">
                         </div>
                     </div>
@@ -38,7 +49,7 @@
                     <div class="info-card-container" >
                         <h3>Bio:</h3> 
                         <p id="_bio" class="p-change switch"></p>
-                        <textarea class="i-change" name="bio" id="bio" cols="40" rows="5"></textarea>
+                        <textarea class="i-change" name="bio" id="bio" cols="40" rows="3"></textarea>
                     </div>
                     <div class="info-card-container">
                         <h3>Lema</h3> 
@@ -106,5 +117,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../JS/profileController.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="../Testing/JS/barra.js" charset="utf-8" ></script>
+
 </body>
 </html>

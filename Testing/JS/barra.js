@@ -236,7 +236,7 @@ const getSearch = () => {
 }; 
 
 const goto = (alias) => {
-    window.location.href = `http://localhost/ServicioSocial/LIT-SS/Templates/perfil.html?${alias}`;
+    window.location.href = `http://localhost/LIT-SS/Templates/perfil.html?${alias}`;
 } 
 
 const search = () =>{

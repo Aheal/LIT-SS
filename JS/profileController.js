@@ -111,10 +111,12 @@ const UIController = (function (){
         textBio: "#_bio",
         textAchievement1: "#_achievement1",
         textAchievement2: "#_achievement2",
-        textAchievement3: "#_achievement3",
+        textAchievement3: "#_achievement3", 
+        textShare : "#_share",
         msgForm: "#message-f", 
         fButton1: "#fButton1", 
         fButton2: "#fButton2", 
+        shareButton: "#share", 
         infoSections: ".p-change", 
         inputSections: ".i-change"
     } 
@@ -216,8 +218,7 @@ const UIController = (function (){
         document.querySelector(DOMstring.textAchievement2).innerHTML = obj.achievement2;
         document.querySelector(DOMstring.textAchievement3).innerHTML = obj.achievement3;
         
-    }
-
+    } 
     const setSave = () => { 
 
         document.querySelector(DOMstring.textName).innerHTML =  document.querySelector(DOMstring.inputName).value;
@@ -227,6 +228,14 @@ const UIController = (function (){
         document.querySelector(DOMstring.textAchievement2).innerHTML = document.querySelector(DOMstring.inputAchievement2).value;
         document.querySelector(DOMstring.textAchievement3).innerHTML = document.querySelector(DOMstring.inputAchievement3).value;
 
+    }
+
+    const setShare = (user) => {
+        document.querySelector(DOMstring.textShare).value = user;
+    } 
+
+    const getShare = () => {
+       return document.querySelector(DOMstring.textShare).value;
     }
 
     return {
@@ -268,7 +277,13 @@ const UIController = (function (){
         }, 
         setInfo: function(user){
             AJAXGetInfo(user);
-        }        
+        }, 
+        setShare: function(user){
+            setShare(user);
+        },
+        getShare : function (){
+            return getShare();
+        }      
     }
 })();
 
@@ -286,7 +301,8 @@ const controller = (function (profile,UI){
         //Update the ui 
         UI.fillDropdown("school",schools);
         UI.fillDropdown("contest",contests); 
-        UI.setInfo(user);
+        UI.setInfo(user); 
+        UI.setShare(user);
 
     } 
 
@@ -297,12 +313,26 @@ const controller = (function (profile,UI){
 
     const edit = () => { 
         UI.toggle(user);
-    };
+    }; 
+
+    const share = () => {
+        /* Get the text field */
+        var copyText = document.querySelector(DOMs.textShare);
+
+        copyText.select();
+                
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+        
+        /* Alert the copied text */
+        alert("Se ha copiado la liga de tu perfil: " + copyText.value);
+    }
 
     init();
     //LISTENERS
     // document.querySelector(DOMs.inputName).addEventListener("keyup",validateName); 
     document.querySelector(DOMs.fButton1).addEventListener("click", save);
-    document.querySelector(DOMs.fButton2).addEventListener("click", edit);
+    document.querySelector(DOMs.fButton2).addEventListener("click", edit); 
+    document.querySelector(DOMs.shareButton).addEventListener("click", share);
 
 })(profileController,UIController); 

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Perfil LIT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="../CSS/reset.css" /> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="../CSS/stick.css" />    
@@ -15,10 +16,11 @@
     <nav class="navbar sticky-top navbar-light justify-content-between">
         <a class="navbar-brand" href=""><img src="../IMG/logo.png" alt="" style="height:60px;"></a>
         <form class="form-inline" autocomplete="off">
-            <div class="autocomplete" style="width:300px; margin-right: 15px;">
+            <!-- <div class="autocomplete" style="width:300px; margin-right: 15px;">
                 <input id="myInput" type="text" name="myCountry" placeholder="buscar usuario">
-            </div> 
-            <button id="_search"class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>   
+            </div>  -->
+            <!-- original id : _search -->
+            <a href="https://www.youtube.com/" class="btn btn-outline-danger my-2 my-sm-0" style="color:red !important;">Cerrar</a>   
         </form>
     </nav>
     <div class="container-fluid editPerfil-container">
@@ -33,18 +35,21 @@
                         <div class="info-card-container">
                             <h3 id="_name" class="p-change switch"></h3>
                             <input class="i-change" name="name" type="text" id="name" value="Rogelio Amaro">
-                        </div>
-                    </div>
-
+                        </div> 
+                    </div> 
+                    <p></p>
+                    <input type="text" id="_share" class="switch" value="adsfasdf">
+                    <button id="share" type="button" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="Copiar Liga"><i class="fas fa-share-alt"></i></button>
                 </div>
             </div> 
             <div class="col-lg-4 cardto b">
                 <div class="info-card-aux">
                     <div class="info-card-container">
                         <h3>Escuela</h3> 
-                        <p id="_school" class="p-change switch"></p> 
-                        <select id="school" class="i-change">
-                        </select>
+                        <p id="_school" class="p-change switch">Colegio Americano de Tabasco</p>
+                        <p id="_school" class="i-change ">Colegio Americano de Tabasco</p>
+                        <select id="school" class="switch"></select> 
+                        <!-- <select id="school" class="i-change"></select> -->
                     </div>
                     <div class="info-card-container" >
                         <h3>Bio:</h3> 
@@ -63,9 +68,10 @@
                     <div class="info-card-aux">
                         <div class="info-card-container">
                             <h3>Concurso</h3>
-                            <p id="_contest" class="p-change switch"></p>
-                            <select id="contest" class="i-change">
-                            </select>
+                            <p id="_contest" class="p-change switch">La Cueva del Leon</p>
+                            <p id="_contest" class="i-change ">La Cueva del Leon</p>
+                            <select id="contest" class="switch"></select>
+                            <!-- <select id="contest" class="i-change"></select> -->
                         </div>
                     </div>
                 </div>
@@ -112,12 +118,16 @@
     <button id="fButton2" type="button" class="float switch">
         <i class="fas fa-edit"></i>
     </button>
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../JS/profileController.js" charset="utf-8" ></script>
-    <script type="text/javascript" src="../Testing/JS/barra.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="../JS/profileController.js" charset="utf-8" ></script> 
+    
+    
+    <!-- <script type="text/javascript" src="../Testing/JS/barra.js" charset="utf-8" ></script>  -->
+    
 
 </body>
 </html>

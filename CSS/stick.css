@@ -34,12 +34,13 @@ html, body {height: 100%;}
     PERFIL
 */ 
 .perfil-body{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),rgb(36, 37, 38);
+    background: url(../IMG/FondoLit.jpg);
     background-size: cover; 
     background-repeat: no-repeat;
 } 
 .perfil-container, .editPerfil-container{
     margin-top: 60px;
+    margin-bottom: 60px;
 }
 .cardto{
    height: 500px;

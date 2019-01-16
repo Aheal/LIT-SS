@@ -231,7 +231,7 @@ const UIController = (function (){
     }
 
     const setShare = (user) => {
-        document.querySelector(DOMstring.textShare).value = user;
+        document.querySelector(DOMstring.textShare).value = `http://localhost/LIT-SS/Templates/perfil.html?${user}`;
     } 
 
     const getShare = () => {

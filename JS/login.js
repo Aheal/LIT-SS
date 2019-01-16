@@ -52,7 +52,7 @@ const UIController = (function (){
                         message.style.background = "#a5d6a7"; 
                         message.style.color = "#fff";
                         message.innerHTML = "Listo Campeon!"; 
-                        window.location.href = `http://localhost/LIT-SS/Templates/edicionPerfil.html?${alias}`;
+                        window.location.href = `../Templates/edicionPerfil.html?${alias}`;
                         break;
                     case "1":
                         message = document.querySelector(DOMstrings.msgForm); 
@@ -112,10 +112,7 @@ const controller = (function (login,UI){
 
         flag = login.isNotEmpty(INPUTS.alias); 
         flag1 = login.isNotEmpty(INPUTS.pass); 
-        console.log(`flag : ${flag}`);
-        console.log(`flag : ${flag1}`);
-        console.log(`alias : ${INPUTS.alias}`);
-        console.log(`pass : ${INPUTS.pass}`);
+        
         if(flag && flag1)
             UI.logIn(INPUTS.alias,INPUTS.pass); 
         else 
